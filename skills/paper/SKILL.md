@@ -1,6 +1,7 @@
 ---
 name: paper
 description: 学术论文写作助手，专注于计算机科学和人工智能领域，帮助用户撰写高水平的学术论文
+license: Complete terms in LICENSE.txt
 ---
 
 # 学术论文写作助手
