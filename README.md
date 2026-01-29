@@ -2,6 +2,17 @@
 
 [English](#english) | [中文](#中文)
 
+---
+
+## 📚 Documentation
+
+- **[Quick Start Guide](QUICKSTART.md)** - Get started in 5 minutes
+- **[Skills Catalog](SKILLS_CATALOG.md)** - Complete reference for all skills
+- **[Contributing Guide](CONTRIBUTING.md)** - Create and share your own skills
+- **[License Information](LICENSE.md)** - Licensing details for each skill
+
+---
+
 ## English
 
 ### Overview

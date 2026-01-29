@@ -2,6 +2,7 @@
 name: graphical-abstract
 description: |
   学术论文摘要结构图(Graphical Abstract/TOC图)创建助手。支持多种工具：Python (matplotlib/PIL/drawsvg)、HTML/CSS/SVG、TikZ/LaTeX、Figma MCP、Banana Pro MCP。当用户需要：(1) 绘制论文摘要图/TOC图、(2) 创建研究流程示意图、(3) 设计期刊投稿用的图形摘要、(4) 制作学术海报的核心图示时触发。关键词：graphical abstract、摘要图、TOC图、流程图、示意图、机制图、架构图。
+license: Complete terms in LICENSE.txt
 ---
 
 # 摘要结构图创建助手

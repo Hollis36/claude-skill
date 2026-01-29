@@ -2,6 +2,7 @@
 name: scientific-plotting
 description: |
   科研绘图助手，用于创建高质量的学术论文图表。支持统计图表（柱状图、折线图、散点图、箱线图、小提琴图）、科学示意图（流程图、机制图）、数据可视化（热力图、网络图）。使用Python (matplotlib/seaborn/plotly)、R (ggplot2) 等工具。当用户需要：(1) 绘制论文图表、(2) 数据可视化、(3) 创建科学示意图、(4) 调整图表样式符合期刊要求时触发。关键词：画图、绑图、绑图、绑图、可视化、plot、figure、chart、科研绘图。
+license: Complete terms in LICENSE.txt
 ---
 
 # 科研绘图助手
