@@ -77,20 +77,6 @@ yarn.lock
 *.toc
 *.synctex.gz
 
-# Generated files
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.pdf
-*.svg
-*.html
-*.css
-*.js
-!scripts/*.js
-!references/*.html
+# OS and Editor artifacts only - allow media and code files
+# Media files are part of examples and references
 
-# Except example/reference files in specific locations
-!*/examples/**
-!*/references/**
-!*/templates/**

@@ -12,8 +12,11 @@ The following skills are licensed under the Apache License 2.0:
 - brand-guidelines
 - canvas-design
 - frontend-design
+- graphical-abstract
 - internal-comms
 - mcp-builder
+- paper
+- scientific-plotting
 - skill-creator
 - slack-gif-creator
 - theme-factory
@@ -40,8 +43,6 @@ Please refer to the LICENSE.txt file in each specific skill directory for comple
 2. **Skill-Specific Terms**: Each skill's license may have different terms, restrictions, and requirements.
 
 3. **Repository Structure**: This repository is organized as a collection of independent skills, each with its own license.
-
-4. **Chinese Language Skills**: The skills `paper`, `graphical-abstract`, and `scientific-plotting` currently do not have explicit license files. Contributors should add appropriate licensing information.
 
 ## For Contributors
 
