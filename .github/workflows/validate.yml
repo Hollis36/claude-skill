@@ -6,10 +6,15 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+
 jobs:
   validate-structure:
     name: Validate Skill Structure
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
     - name: Checkout code
@@ -119,6 +124,8 @@ jobs:
   validate-markdown:
     name: Validate Markdown
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
     - name: Checkout code
@@ -141,6 +148,8 @@ jobs:
   check-typos:
     name: Check for Common Typos
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
     - name: Checkout code
