@@ -95,7 +95,7 @@ This document summarizes the changes made to organize and supplement the Claude 
 
 ### Before
 ```
-cluade_skill/
+claude-skill/
 ├── commands/
 │   └── paper.md
 ├── graphical-abstract/
@@ -108,7 +108,7 @@ cluade_skill/
 
 ### After
 ```
-cluade_skill/
+claude-skill/
 ├── README.md                    # ✨ NEW: Main documentation
 ├── QUICKSTART.md                # ✨ NEW: Quick start guide
 ├── SKILLS_CATALOG.md            # ✨ NEW: Skill reference
@@ -195,4 +195,4 @@ The repository is now ready for public use and contributions! 🎉
 ---
 
 **Generated**: 2026-01-29  
-**Repository**: [Hollis36/cluade_skill](https://github.com/Hollis36/cluade_skill)
+**Repository**: [Hollis36/claude-skill](https://github.com/Hollis36/claude-skill)

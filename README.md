@@ -1,19 +1,42 @@
 # Claude Skills Collection
 
+[![License](https://img.shields.io/badge/license-Mixed-blue.svg)](LICENSE.md)
+[![GitHub stars](https://img.shields.io/github/stars/Hollis36/claude-skill.svg?style=social&label=Star)](https://github.com/Hollis36/claude-skill)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Validate Skills](https://github.com/Hollis36/claude-skill/actions/workflows/validate.yml/badge.svg)](https://github.com/Hollis36/claude-skill/actions/workflows/validate.yml)
+
+> A comprehensive collection of modular skills that transform Claude into a specialized expert for specific domains and tasks.
+
 [English](#english) | [中文](#中文)
 
 ---
 
 ## 📚 Documentation
 
-- **[Quick Start Guide](QUICKSTART.md)** - Get started in 5 minutes
-- **[Skills Catalog](SKILLS_CATALOG.md)** - Complete reference for all skills
-- **[Contributing Guide](CONTRIBUTING.md)** - Create and share your own skills
-- **[License Information](LICENSE.md)** - Licensing details for each skill
+- **[Quick Start Guide](QUICKSTART.md)** - Get started in 5 minutes ⚡
+- **[Skills Catalog](SKILLS_CATALOG.md)** - Complete reference for all skills 📖
+- **[Contributing Guide](CONTRIBUTING.md)** - Create and share your own skills 🤝
+- **[License Information](LICENSE.md)** - Licensing details for each skill 📄
+- **[Changelog](CHANGELOG.md)** - Track project updates and changes 📝
+- **[Code of Conduct](CODE_OF_CONDUCT.md)** - Community guidelines 🤗
+- **[Security Policy](SECURITY.md)** - Security guidelines and reporting 🔒
 
 ---
 
 ## English
+
+### Table of Contents
+
+- [Overview](#overview)
+- [What are Skills?](#what-are-skills)
+- [Repository Structure](#repository-structure)
+- [Available Skills](#available-skills)
+- [How to Use](#how-to-use)
+- [Skill Structure](#skill-structure)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
 
 ### Overview
 
@@ -31,7 +54,7 @@ Skills are structured prompts and workflows that provide:
 ### Repository Structure
 
 ```
-cluade_skill/
+claude-skill/
 ├── skills/              # Main skills directory
 │   ├── algorithmic-art/    # Generative art with p5.js
 │   ├── brand-guidelines/   # Brand identity creation
@@ -113,6 +136,9 @@ Contributions are welcome! When creating new skills:
 2. Keep skills concise and focused
 3. Include clear examples and workflows
 4. Add appropriate license information
+5. Run `python3 scripts/validate_skills.py` to validate your skill structure
+
+For detailed contribution guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ### License
 
@@ -121,6 +147,19 @@ Individual skills may have different licenses. Check the `LICENSE.txt` file in e
 ---
 
 ## 中文
+
+### 目录
+
+- [概述](#概述)
+- [什么是技能？](#什么是技能)
+- [仓库结构](#仓库结构)
+- [可用技能](#可用技能)
+- [如何使用](#如何使用)
+- [技能结构](#技能结构)
+- [贡献](#贡献)
+- [许可证](#许可证)
+
+---
 
 ### 概述
 
@@ -138,7 +177,7 @@ Individual skills may have different licenses. Check the `LICENSE.txt` file in e
 ### 仓库结构
 
 ```
-cluade_skill/
+claude-skill/
 ├── skills/              # 主技能目录
 │   ├── algorithmic-art/    # p5.js 生成式艺术
 │   ├── brand-guidelines/   # 品牌标识创建

@@ -1,0 +1,156 @@
+name: Validate Skills
+
+on:
+  push:
+    branches: [ main, copilot/** ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-structure:
+    name: Validate Skill Structure
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Check for required files
+      run: |
+        echo "Checking for required documentation files..."
+        required_files=(
+          "README.md"
+          "QUICKSTART.md"
+          "SKILLS_CATALOG.md"
+          "CONTRIBUTING.md"
+          "LICENSE.md"
+          "CODE_OF_CONDUCT.md"
+          "SECURITY.md"
+        )
+        
+        all_found=true
+        for file in "${required_files[@]}"; do
+          if [ ! -f "$file" ]; then
+            echo "❌ Missing required file: $file"
+            all_found=false
+          else
+            echo "✅ Found: $file"
+          fi
+        done
+        
+        if [ "$all_found" = false ]; then
+          exit 1
+        fi
+    
+    - name: Validate skill directories
+      run: |
+        echo "Checking skill directories for required files..."
+        
+        # Check skills in skills/ directory
+        for skill_dir in skills/*/; do
+          if [ -d "$skill_dir" ]; then
+            skill_name=$(basename "$skill_dir")
+            echo "Checking skill: $skill_name"
+            
+            if [ ! -f "$skill_dir/SKILL.md" ]; then
+              echo "❌ Missing SKILL.md in $skill_name"
+              exit 1
+            else
+              echo "✅ Found SKILL.md in $skill_name"
+            fi
+            
+            if [ ! -f "$skill_dir/LICENSE.txt" ]; then
+              echo "⚠️  Warning: Missing LICENSE.txt in $skill_name"
+            fi
+          fi
+        done
+        
+        # Check root-level skills
+        for skill_dir in graphical-abstract scientific-plotting; do
+          if [ -d "$skill_dir" ]; then
+            echo "Checking skill: $skill_dir"
+            
+            if [ ! -f "$skill_dir/SKILL.md" ]; then
+              echo "❌ Missing SKILL.md in $skill_dir"
+              exit 1
+            else
+              echo "✅ Found SKILL.md in $skill_dir"
+            fi
+          fi
+        done
+    
+    - name: Check for broken links in README
+      run: |
+        echo "Checking for broken internal links..."
+        # This is a basic check - could be enhanced with a proper link checker
+        python3 -c "
+        import re
+        import os
+        
+        with open('README.md', 'r') as f:
+            content = f.read()
+        
+        # Find markdown links
+        links = re.findall(r'\[([^\]]+)\]\(([^\)]+)\)', content)
+        
+        broken = []
+        for text, link in links:
+            # Check only internal links (not http/https)
+            if not link.startswith('http'):
+                # Remove anchors
+                file_path = link.split('#')[0]
+                if file_path and not os.path.exists(file_path):
+                    broken.append((text, link))
+        
+        if broken:
+            print('❌ Found broken internal links:')
+            for text, link in broken:
+                print(f'  - [{text}]({link})')
+            exit(1)
+        else:
+            print('✅ No broken internal links found')
+        "
+
+  validate-markdown:
+    name: Validate Markdown
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Markdown lint
+      uses: DavidAnson/markdownlint-cli2-action@v14
+      with:
+        globs: |
+          **/*.md
+          !**/node_modules/**
+          !**/.github/**
+        config: |
+          {
+            "line-length": false,
+            "no-inline-html": false,
+            "first-line-heading": false
+          }
+
+  check-typos:
+    name: Check for Common Typos
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Check for "cluade" typo
+      run: |
+        if grep -r "cluade" --include="*.md" .; then
+          echo "❌ Found typo 'cluade' (should be 'claude')"
+          exit 1
+        else
+          echo "✅ No 'cluade' typos found"
+        fi
