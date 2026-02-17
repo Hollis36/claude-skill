@@ -13,12 +13,14 @@
 
 ## 📚 Documentation
 
+- **[Project Overview](PROJECT_OVERVIEW.md)** - Comprehensive project guide 📋
 - **[Quick Start Guide](QUICKSTART.md)** - Get started in 5 minutes ⚡
 - **[Skills Catalog](SKILLS_CATALOG.md)** - Complete reference for all skills 📖
 - **[Skill Comparison](SKILL_COMPARISON.md)** - Choose the right skill for your needs 🔄
 - **[Examples](examples/)** - Practical examples and use cases 💡
 - **[Troubleshooting](TROUBLESHOOTING.md)** - Common issues and solutions 🔧
 - **[Contributing Guide](CONTRIBUTING.md)** - Create and share your own skills 🤝
+- **[Contributors](CONTRIBUTORS.md)** - Acknowledge our contributors 👥
 - **[License Information](LICENSE.md)** - Licensing details for each skill 📄
 - **[Changelog](CHANGELOG.md)** - Track project updates and changes 📝
 - **[Code of Conduct](CODE_OF_CONDUCT.md)** - Community guidelines 🤗

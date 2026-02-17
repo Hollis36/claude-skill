@@ -77,6 +77,24 @@ yarn.lock
 *.toc
 *.synctex.gz
 
+# macOS
+.AppleDouble
+.LSOverride
+
+# Testing
+.tox/
+.nox/
+.hypothesis/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
 # OS and Editor artifacts only - allow media and code files
 # Media files are part of examples and references
 
