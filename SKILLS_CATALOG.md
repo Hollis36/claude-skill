@@ -24,6 +24,11 @@ Complete reference for all skills in this repository. Click on skill names to vi
 
 **Use when**: Creating graphical abstracts, TOC figures, research flow diagrams, mechanism illustrations
 
+### [review-paper-writing](review-paper-writing/SKILL.md)
+**综述论文写作助手** - Comprehensive guide to writing literature review and survey papers. Integrates MCP bio-research tools (PubMed, bioRxiv, ChEMBL, ClinicalTrials.gov, Open Targets), scientific writing plugins, and a structured 7-phase workflow from topic definition to submission.
+
+**Use when**: Writing literature reviews, survey papers, systematic reviews; searching biomedical databases; organizing and synthesizing research findings
+
 ### [scientific-plotting](scientific-plotting/SKILL.md)
 **科研绘图助手** - Create high-quality scientific plots and data visualizations for academic publications. Supports statistical charts, scientific diagrams, and meets journal formatting requirements.
 
@@ -133,6 +138,7 @@ Knowledge and utilities for creating animated GIFs optimized for Slack. Provides
 |-------|-----------------|-----------|
 | paper | 中文/Chinese | LaTeX, BibTeX, Academic writing |
 | graphical-abstract | 中文/Chinese | Python, matplotlib, HTML/SVG, TikZ |
+| review-paper-writing | 中文/English | MCP Bio-Research, Scientific Writer, Literature Review |
 | scientific-plotting | 中文/Chinese | Python, matplotlib, seaborn, R |
 | algorithmic-art | English | p5.js, JavaScript |
 | canvas-design | English | Design tools, Python |

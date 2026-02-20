@@ -106,6 +106,12 @@ Feel free to modify skills to match your specific needs. Skills are templates, n
 2. **Create plots**: Use `scientific-plotting/SKILL.md`
 3. **Design TOC figure**: Use `graphical-abstract/SKILL.md`
 
+### Review Paper Writing Workflow
+1. **Define scope & search**: Use `review-paper-writing/SKILL.md` (Phases 1-2)
+2. **Organize & synthesize**: Use Literature Review + comparison matrix (Phase 3)
+3. **Write & review**: Use Scientific Writer plugin + Peer Review (Phases 4-6)
+4. **Format & submit**: Use venue templates (Phase 7)
+
 ### Web Development Workflow
 1. **Design interface**: Use `skills/frontend-design/SKILL.md`
 2. **Build components**: Use `skills/web-artifacts-builder/SKILL.md`

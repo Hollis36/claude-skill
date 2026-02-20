@@ -50,9 +50,10 @@ cluade_skill/
 │   ├── web-artifacts-builder/ # Web component creation
 │   ├── webapp-testing/     # Web application testing
 │   └── xlsx/               # Excel spreadsheet handling
-├── graphical-abstract/  # Academic graphical abstract creation
-├── scientific-plotting/ # Scientific data visualization
-└── commands/           # Command templates
+├── graphical-abstract/     # Academic graphical abstract creation
+├── review-paper-writing/   # Literature review / survey paper writing
+├── scientific-plotting/    # Scientific data visualization
+└── commands/              # Command templates
 ```
 
 ### Available Skills
@@ -60,6 +61,7 @@ cluade_skill/
 #### Academic & Research
 - **paper** - Academic paper writing assistant (AI/CS focus)
 - **graphical-abstract** - Create journal-quality graphical abstracts and TOC figures
+- **review-paper-writing** - Literature review and survey paper writing with MCP bio-research tools
 - **scientific-plotting** - High-quality scientific plotting and data visualization
 
 #### Design & Creative
@@ -157,9 +159,10 @@ cluade_skill/
 │   ├── web-artifacts-builder/ # Web 组件创建
 │   ├── webapp-testing/     # Web 应用测试
 │   └── xlsx/               # Excel 表格处理
-├── graphical-abstract/  # 学术摘要图创建
-├── scientific-plotting/ # 科研数据可视化
-└── commands/           # 命令模板
+├── graphical-abstract/     # 学术摘要图创建
+├── review-paper-writing/   # 综述论文写作
+├── scientific-plotting/    # 科研数据可视化
+└── commands/              # 命令模板
 ```
 
 ### 可用技能
@@ -167,6 +170,7 @@ cluade_skill/
 #### 学术与研究
 - **paper** - 学术论文写作助手（AI/计算机科学方向）
 - **graphical-abstract** - 创建期刊级别的图形摘要和 TOC 图
+- **review-paper-writing** - 综述论文写作，集成 MCP 生物医学文献检索工具
 - **scientific-plotting** - 高质量科研绘图和数据可视化
 
 #### 设计与创意
