@@ -15,24 +15,24 @@ Complete reference for all skills in this repository. Click on skill names to vi
 ## Academic & Research
 
 ### [paper](skills/paper/SKILL.md)
-**学术论文写作助手** - Academic paper writing assistant focused on computer science and artificial intelligence. Helps write high-quality research papers with proper structure, citations, and academic language.
+**多学科学术论文写作助手** - Academic paper writing assistant supporting CS/AI, biomedical, chemistry, physics, and materials science. Features 2025-2026 AI tool integration (Semantic Scholar, Elicit, Research Rabbit, Scite.ai), AI ethics & academic integrity guidelines, multi-journal template support (NeurIPS/ICML/Nature/IEEE/ACS/Elsevier), enhanced LaTeX support, and Rebuttal/Response Letter writing guide.
 
-**Use when**: Writing research papers, organizing paper structure, drafting academic content
+**Use when**: Writing research papers, organizing paper structure, drafting academic content, responding to reviewer comments
 
 ### [graphical-abstract](graphical-abstract/SKILL.md)
-**摘要结构图创建助手** - Create journal-quality graphical abstracts and table of contents (TOC) figures for academic papers. Supports multiple tools: Python (matplotlib/PIL/drawsvg), HTML/CSS/SVG, TikZ/LaTeX, Figma MCP, Banana Pro MCP.
+**摘要结构图创建助手** - Create journal-quality graphical abstracts and table of contents (TOC) figures. Supports Python (matplotlib/drawsvg), HTML/CSS/SVG, TikZ/LaTeX, Plotly+Kaleido, Figma MCP, Banana Pro MCP. Includes 2025-2026 journal size specs (PNAS, JACS, Angewandte Chemie, Advanced Materials, Lancet, PLOS ONE), modern design trends (Glassmorphism, Isometric), and accessibility guidelines.
 
 **Use when**: Creating graphical abstracts, TOC figures, research flow diagrams, mechanism illustrations
 
 ### [review-paper-writing](review-paper-writing/SKILL.md)
-**综述论文写作助手** - Comprehensive guide to writing literature review and survey papers. Integrates MCP bio-research tools (PubMed, bioRxiv, ChEMBL, ClinicalTrials.gov, Open Targets), scientific writing plugins, and a structured 7-phase workflow from topic definition to submission.
+**综述论文写作助手** - Comprehensive guide to writing literature review and survey papers. Integrates MCP bio-research tools (PubMed, bioRxiv, ChEMBL, ClinicalTrials.gov), 2025-2026 AI tools (Semantic Scholar, OpenAlex, Elicit, Research Rabbit, Connected Papers, Consensus, Scite.ai), PRISMA 2020 updated guidelines, Meta-Analysis workflow (forest plots, funnel plots, heterogeneity analysis), and AI ethics guide for systematic reviews.
 
-**Use when**: Writing literature reviews, survey papers, systematic reviews; searching biomedical databases; organizing and synthesizing research findings
+**Use when**: Writing literature reviews, survey papers, systematic reviews, meta-analyses; searching academic databases; organizing and synthesizing research findings
 
 ### [scientific-plotting](scientific-plotting/SKILL.md)
-**科研绘图助手** - Create high-quality scientific plots and data visualizations for academic publications. Supports statistical charts, scientific diagrams, and meets journal formatting requirements.
+**科研绘图助手** - Create high-quality scientific plots for academic publications. Features SciencePlots v2.2.1 (one-line IEEE/Nature/ACS journal styling), Plotly interactive 3D visualization, Plotnine (Python ggplot2), Statannotations for statistical significance brackets, advanced chart types (radar, Sankey, facet grids, waterfall, donut), font embedding best practices (pdf.fonttype=42), and multi-journal format specs (IEEE, Nature, Science, ACS, RSC, Elsevier).
 
-**Use when**: Plotting data, creating figures for papers, scientific data visualization
+**Use when**: Plotting data, creating figures for papers, scientific data visualization, statistical analysis visualization
 
 ---
 
@@ -136,10 +136,10 @@ Knowledge and utilities for creating animated GIFs optimized for Slack. Provides
 
 | Skill | Primary Language | Key Tools |
 |-------|-----------------|-----------|
-| paper | 中文/Chinese | LaTeX, BibTeX, Academic writing |
-| graphical-abstract | 中文/Chinese | Python, matplotlib, HTML/SVG, TikZ |
-| review-paper-writing | 中文/English | MCP Bio-Research, Scientific Writer, Literature Review |
-| scientific-plotting | 中文/Chinese | Python, matplotlib, seaborn, R |
+| paper | 中文/Chinese | LaTeX, BibTeX, Semantic Scholar, Elicit, Scite.ai |
+| graphical-abstract | 中文/Chinese | Python, matplotlib, drawsvg, Plotly, HTML/SVG, TikZ |
+| review-paper-writing | 中文/English | Semantic Scholar, OpenAlex, Elicit, Research Rabbit, MCP Bio-Research |
+| scientific-plotting | 中文/Chinese | SciencePlots, Plotly, Plotnine, Statannotations, matplotlib, seaborn, R |
 | algorithmic-art | English | p5.js, JavaScript |
 | canvas-design | English | Design tools, Python |
 | frontend-design | English | React, HTML/CSS, JavaScript |
