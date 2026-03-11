@@ -1,7 +1,7 @@
 ---
 name: scientific-plotting
 description: |
-  科研绘图助手，用于创建高质量的学术论文图表。支持统计图表（柱状图、折线图、散点图、箱线图、小提琴图）、科学示意图（流程图、机制图）、数据可视化（热力图、网络图）。使用Python (matplotlib/seaborn/plotly)、R (ggplot2) 等工具。当用户需要：(1) 绘制论文图表、(2) 数据可视化、(3) 创建科学示意图、(4) 调整图表样式符合期刊要求时触发。关键词：画图、绘图、可视化、plot、figure、chart、科研绘图。
+  科研绘图助手，用于创建高质量的学术论文图表。支持统计图表（柱状图、折线图、散点图、箱线图、小提琴图）、科学示意图（流程图、机制图）、数据可视化（热力图、网络图）、高级图表（雷达图、Sankey图、分面图）。集成SciencePlots v2.2.1、Plotly交互式可视化、Plotnine等2025-2026最新工具。使用Python (matplotlib/seaborn/scienceplots/plotly/plotnine)、R (ggplot2) 等工具。当用户需要：(1) 绘制论文图表、(2) 数据可视化、(3) 创建科学示意图、(4) 调整图表样式符合期刊要求时触发。关键词：画图、绘图、可视化、plot、figure、chart、科研绘图。
 license: Complete terms in LICENSE.txt
 ---
 
@@ -25,17 +25,65 @@ license: Complete terms in LICENSE.txt
 | 时间序列 | 折线图 | matplotlib |
 | 相关性 | 散点图 | seaborn |
 | 分布 | 箱线图/小提琴图 | seaborn |
-| 比例 | 饼图（谨慎使用） | matplotlib |
+| 比例 | 饼图/甜甜圈图（谨慎使用） | matplotlib |
+| 多维比较 | 雷达图/蜘蛛图 | matplotlib |
+| 流向关系 | Sankey流向图 | plotly |
+| 多变量分组 | 分面图 (Facet Grid) | plotnine/seaborn |
+| 增减变化 | 瀑布图 | matplotlib |
 
 ### 科学可视化
 | 数据类型 | 推荐图表 | 工具 |
 |---------|---------|------|
 | 矩阵数据 | 热力图 | seaborn/matplotlib |
 | 关系网络 | 网络图 | networkx |
-| 高维数据 | PCA/t-SNE | sklearn + matplotlib |
+| 高维数据 | PCA/t-SNE/UMAP | sklearn + matplotlib |
 | 地理数据 | 地图 | folium/geopandas |
+| 3D数据 | 3D图表 | plotly |
+| 统计显著性 | 带显著性标注的图 | statannotations |
 
-## IEEE格式规范
+## SciencePlots（一行代码变身期刊级图表）
+
+```python
+# 安装: pip install scienceplots
+import scienceplots
+import matplotlib.pyplot as plt
+
+# IEEE风格（自动应用所有IEEE格式规范）
+plt.style.use(['science', 'ieee'])
+
+# Nature风格
+plt.style.use(['science', 'nature'])
+
+# Science期刊风格
+plt.style.use(['science', 'science'])
+
+# 色盲友好（与其他样式叠加使用）
+plt.style.use(['science', 'ieee', 'colorblind'])
+
+# CJK字体支持（中文/日文/韩文）
+plt.style.use(['science', 'cjk-sc-font'])  # 简体中文
+
+# 可堆叠样式组合示例
+plt.style.use(['science', 'ieee', 'no-latex'])  # 无需安装LaTeX
+
+# 完整示例
+with plt.style.context(['science', 'ieee']):
+    fig, ax = plt.subplots(figsize=(3.5, 2.5))
+    ax.plot([1, 2, 3, 4], [1, 4, 9, 16], label='$y = x^2$')
+    ax.legend()
+    ax.set_xlabel('$x$')
+    ax.set_ylabel('$y$')
+    fig.savefig('figure.pdf', bbox_inches='tight')
+```
+
+SciencePlots v2.2.1 支持的样式（50+期刊预设）：
+- 基础：`science`, `ieee`, `nature`, `scatter`, `high-vis`
+- 期刊：`acs`, `rsc`, `aip`, `std-colors`
+- 辅助：`colorblind`, `bright`, `no-latex`, `cjk-sc-font`
+
+## 期刊格式规范
+
+### IEEE格式规范
 
 ```python
 # IEEE双栏论文图表尺寸
@@ -56,14 +104,73 @@ plt.rcParams.update({
 })
 ```
 
+### Nature / Science 格式规范
+
+```python
+# Nature图表规范
+NATURE_SINGLE = (89/25.4, 60/25.4)   # 89mm单栏
+NATURE_DOUBLE = (183/25.4, 120/25.4) # 183mm双栏
+
+NATURE_STYLE = {
+    'font.family': 'sans-serif',
+    'font.sans-serif': ['Helvetica', 'Arial'],
+    'font.size': 7,
+    'axes.labelsize': 7,
+    'xtick.labelsize': 6,
+    'ytick.labelsize': 6,
+    'legend.fontsize': 6,
+    'figure.dpi': 300,
+    'lines.linewidth': 0.75,
+}
+```
+
+### ACS / RSC 化学期刊规范
+
+```python
+# ACS图表规范
+ACS_SINGLE = (3.25, 2.25)  # 3.25 inches单栏
+ACS_DOUBLE = (7.0, 4.5)    # 7 inches双栏
+ACS_STYLE = {
+    'font.family': 'sans-serif',
+    'font.sans-serif': ['Arial', 'Helvetica'],
+    'font.size': 8,
+    'axes.labelsize': 8,
+    'xtick.labelsize': 7,
+    'ytick.labelsize': 7,
+    'legend.fontsize': 7,
+}
+
+# RSC图表规范
+RSC_SINGLE = (8.0/2.54, 5.5/2.54)  # 8cm单栏
+RSC_DOUBLE = (17.0/2.54, 8.5/2.54) # 17cm双栏
+```
+
+### Elsevier 图表规范
+
+```python
+# Elsevier图表规范
+ELSEVIER_SINGLE = (90/25.4, 60/25.4)   # 90mm单栏
+ELSEVIER_DOUBLE = (190/25.4, 120/25.4) # 190mm双栏
+ELSEVIER_STYLE = {
+    'font.size': 8,
+    'axes.labelsize': 9,
+    'xtick.labelsize': 8,
+    'ytick.labelsize': 8,
+}
+```
+
 ## Python绘图模板
 
-### 基础设置
+### 基础设置（含字体嵌入最佳实践）
 
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+
+# 字体嵌入（确保PDF/EPS中字体可嵌入，避免投稿问题）
+plt.rcParams['pdf.fonttype'] = 42   # TrueType字体嵌入PDF
+plt.rcParams['ps.fonttype'] = 42    # TrueType字体嵌入PS/EPS
 
 # 学术风格初始化
 def setup_academic_style():
@@ -80,6 +187,8 @@ def setup_academic_style():
         'savefig.dpi': 300,
         'savefig.bbox': 'tight',
         'savefig.pad_inches': 0.05,
+        'pdf.fonttype': 42,
+        'ps.fonttype': 42,
     })
 ```
 
@@ -113,6 +222,171 @@ def multi_line(x, y_list, labels, xlabel, ylabel, figsize=(3.5, 2.5)):
     return fig, ax
 ```
 
+### Statannotations 统计显著性标注
+
+```python
+# 安装: pip install statannotations
+from statannotations.Annotator import Annotator
+import seaborn as sns
+
+fig, ax = plt.subplots(figsize=(4, 3))
+data = ...  # 你的数据 DataFrame
+
+# 绘制箱线图
+order = ['Group A', 'Group B', 'Group C']
+sns.boxplot(x='group', y='value', data=data, order=order, ax=ax)
+
+# 添加统计显著性标注
+pairs = [('Group A', 'Group B'), ('Group A', 'Group C'), ('Group B', 'Group C')]
+annotator = Annotator(ax, pairs, data=data, x='group', y='value', order=order)
+annotator.configure(test='Mann-Whitney', text_format='star', loc='outside')
+annotator.apply_and_annotate()
+
+plt.tight_layout()
+```
+
+### Plotly 交互式科学可视化
+
+```python
+import plotly.graph_objects as go
+import plotly.express as px
+
+# 3D散点图
+fig = px.scatter_3d(df, x='x', y='y', z='z',
+                    color='category', size='weight',
+                    title='3D Scientific Visualization')
+fig.update_layout(
+    scene=dict(
+        xaxis_title='X Axis',
+        yaxis_title='Y Axis',
+        zaxis_title='Z Axis',
+    )
+)
+
+# HTML导出（用于网页/演示）
+fig.write_html('interactive_figure.html')
+
+# 静态图导出（需要安装 kaleido）
+# pip install kaleido
+fig.write_image('figure.pdf', width=700, height=500)
+fig.write_image('figure.png', width=1400, height=1000, scale=2)
+
+# Sankey流向图
+fig_sankey = go.Figure(data=[go.Sankey(
+    node=dict(
+        pad=15,
+        thickness=20,
+        line=dict(color='black', width=0.5),
+        label=['A', 'B', 'C', 'D'],
+        color='blue'
+    ),
+    link=dict(
+        source=[0, 1, 0, 2],
+        target=[2, 3, 3, 3],
+        value=[8, 4, 2, 8]
+    )
+)])
+```
+
+### Plotnine (Python ggplot2)
+
+```python
+# 安装: pip install plotnine
+from plotnine import (ggplot, aes, geom_point, geom_line, geom_bar,
+                       facet_wrap, theme_classic, labs, scale_color_brewer)
+import pandas as pd
+
+# 基础散点图（Grammar of Graphics语法）
+p = (ggplot(df, aes('x', 'y', color='group'))
+     + geom_point(size=2, alpha=0.7)
+     + geom_line()
+     + facet_wrap('~condition', ncol=2)  # 分面图
+     + theme_classic()
+     + labs(title='Title', x='X Label', y='Y Label', color='Group')
+     + scale_color_brewer(type='qual', palette='Set1')
+)
+
+# 保存为高分辨率图像
+p.save('figure.pdf', width=7, height=5, units='in', dpi=300)
+```
+
+### 高级图表类型
+
+#### 雷达图 / 蜘蛛图
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def radar_chart(categories, values_list, labels, figsize=(5, 5)):
+    N = len(categories)
+    angles = [n / float(N) * 2 * np.pi for n in range(N)]
+    angles += angles[:1]
+
+    fig, ax = plt.subplots(figsize=figsize, subplot_kw=dict(polar=True))
+
+    for values, label in zip(values_list, labels):
+        values += values[:1]
+        ax.plot(angles, values, linewidth=2, linestyle='solid', label=label)
+        ax.fill(angles, values, alpha=0.1)
+
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(categories, size=9)
+    ax.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1))
+    return fig, ax
+```
+
+#### 分面图 (Facet Grid)
+
+```python
+import seaborn as sns
+
+# Seaborn FacetGrid
+g = sns.FacetGrid(df, col='condition', row='group',
+                  height=2.5, aspect=1.2)
+g.map_dataframe(sns.scatterplot, x='x', y='y', alpha=0.6)
+g.add_legend()
+g.set_axis_labels('X Label', 'Y Label')
+g.set_titles(col_template='{col_name}', row_template='{row_name}')
+```
+
+#### 瀑布图
+
+```python
+def waterfall_chart(values, labels, figsize=(6, 4)):
+    fig, ax = plt.subplots(figsize=figsize)
+    cumulative = 0
+    bottoms = []
+    for i, (val, lbl) in enumerate(zip(values, labels)):
+        color = '#2ECC71' if val >= 0 else '#E74C3C'
+        ax.bar(i, abs(val), bottom=min(cumulative, cumulative + val),
+               color=color, edgecolor='white', linewidth=0.5)
+        cumulative += val
+        bottoms.append(cumulative)
+    ax.set_xticks(range(len(labels)))
+    ax.set_xticklabels(labels, rotation=45, ha='right')
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    return fig, ax
+```
+
+#### 甜甜圈图
+
+```python
+def donut_chart(values, labels, colors=None, figsize=(5, 5)):
+    fig, ax = plt.subplots(figsize=figsize)
+    wedges, texts, autotexts = ax.pie(
+        values, labels=labels, colors=colors,
+        autopct='%1.1f%%', startangle=90,
+        wedgeprops={'linewidth': 2, 'edgecolor': 'white'}
+    )
+    # 甜甜圈效果
+    centre_circle = plt.Circle((0, 0), 0.6, fc='white')
+    ax.add_patch(centre_circle)
+    ax.set_aspect('equal')
+    return fig, ax
+```
+
 ## 配色方案
 
 详细配色方案见 [references/color-palettes.md](references/color-palettes.md)
@@ -138,25 +412,31 @@ SEQUENTIAL = plt.cm.viridis  # 单色渐变
 DIVERGING = plt.cm.RdBu_r    # 双向渐变
 ```
 
-## 输出规范
+## 输出规范（矢量图最佳实践）
 
 ```python
-# 保存为多种格式
+# 保存为多种格式（含字体嵌入）
 def save_figure(fig, name, formats=['pdf', 'png', 'svg']):
+    # 确保字体嵌入（避免投稿时字体缺失问题）
+    plt.rcParams['pdf.fonttype'] = 42
+    plt.rcParams['ps.fonttype'] = 42
+
     for fmt in formats:
         fig.savefig(f'{name}.{fmt}',
                     dpi=300 if fmt == 'png' else None,
                     bbox_inches='tight',
                     pad_inches=0.05,
                     transparent=True if fmt in ['pdf', 'svg'] else False)
+        print(f'Saved: {name}.{fmt}')
 ```
 
-| 格式 | 用途 | DPI |
-|-----|------|-----|
-| PDF | 论文投稿、矢量图 | 矢量 |
-| PNG | 网页、PPT | 300 |
-| SVG | 可编辑矢量图 | 矢量 |
-| TIFF | 部分期刊要求 | 300-600 |
+| 格式 | 用途 | DPI | 字体嵌入 |
+|-----|------|-----|---------|
+| PDF | 论文投稿、矢量图 | 矢量 | `pdf.fonttype=42` |
+| EPS | 部分期刊（Elsevier等）| 矢量 | `ps.fonttype=42` |
+| PNG | 网页、PPT | 300-600 | 不适用 |
+| SVG | 可编辑矢量图 | 矢量 | 内嵌 |
+| TIFF | 部分期刊要求 | 300-600 | 不适用 |
 
 ## R ggplot2 模板
 
@@ -169,8 +449,8 @@ theme_ieee <- function() {
   theme_minimal(base_size = 8, base_family = "serif") +
     theme(
       panel.grid.minor = element_blank(),
-      panel.grid.major = element_line(size = 0.3, color = "grey80"),
-      axis.line = element_line(size = 0.5),
+      panel.grid.major = element_line(linewidth = 0.3, color = "grey80"),  # ggplot2 >= 3.4.0
+      axis.line = element_line(linewidth = 0.5),
       legend.position = "bottom",
       plot.title = element_text(size = 9, face = "bold"),
       axis.title = element_text(size = 8),
@@ -178,16 +458,20 @@ theme_ieee <- function() {
     )
 }
 
-# 保存图表
-ggsave("figure.pdf", width = 3.5, height = 2.5, units = "in", dpi = 300)
+# 保存图表（嵌入字体）
+ggsave("figure.pdf", width = 3.5, height = 2.5, units = "in", dpi = 300,
+       device = cairo_pdf)  # cairo_pdf 确保字体嵌入
 ```
 
 ## 常见问题解决
 
 ### 中文显示
 ```python
-plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei']
+plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'WenQuanYi Micro Hei']
 plt.rcParams['axes.unicode_minus'] = False
+
+# 或使用 SciencePlots CJK 支持（需要系统安装中文字体，如 Noto Sans SC 或 Source Han Sans）
+plt.style.use(['science', 'cjk-sc-font'])
 ```
 
 ### LaTeX公式
@@ -195,6 +479,10 @@ plt.rcParams['axes.unicode_minus'] = False
 plt.rcParams['text.usetex'] = True
 plt.rcParams['text.latex.preamble'] = r'\usepackage{amsmath}'
 # 使用: ax.set_xlabel(r'$\alpha$ (rad)')
+
+# 无需安装LaTeX时（使用mathtext）
+plt.rcParams['text.usetex'] = False
+plt.rcParams['mathtext.fontset'] = 'stix'
 ```
 
 ### 子图布局
@@ -203,3 +491,16 @@ fig, axes = plt.subplots(2, 2, figsize=(7.16, 5))
 fig.tight_layout()
 # 或使用 constrained_layout=True
 ```
+
+## 质量检查清单
+
+- [ ] 图表尺寸符合目标期刊要求
+- [ ] 字体大小符合期刊规范（通常6-9pt）
+- [ ] 分辨率 ≥ 300 DPI（线图600 DPI）
+- [ ] PDF/EPS已设置 `fonttype=42` 确保字体嵌入
+- [ ] 色彩方案色盲友好（使用 `colorblind` 样式验证）
+- [ ] 坐标轴标签含单位
+- [ ] 图例清晰，无遮挡数据
+- [ ] 统计误差棒类型已在图注中说明（SD/SEM/CI）
+- [ ] 统计显著性标注正确（使用 statannotations 自动化）
+- [ ] 文件格式符合期刊要求
