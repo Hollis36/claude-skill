@@ -50,12 +50,14 @@ cluade_skill/
 │   ├── web-artifacts-builder/ # Web component creation
 │   ├── webapp-testing/     # Web application testing
 │   └── xlsx/               # Excel spreadsheet handling
+├── code-review/            # Scientific code review with testing focus
 ├── experiment-tracking/    # Lab experiment tracking and data management
 ├── graphical-abstract/     # Academic graphical abstract creation
 ├── reproducible-research/  # Reproducible computational workflows
 ├── review-paper-writing/   # Literature review / survey paper writing
 ├── scientific-plotting/    # Scientific data visualization
 ├── statistical-analysis/   # Statistical analysis and reporting
+├── systematic-debugging/   # Systematic debugging workflow for research code
 └── commands/              # Command templates
 ```
 
@@ -69,6 +71,8 @@ cluade_skill/
 - **experiment-tracking** - Lab experiment tracking, data management, and FAIR principles
 - **statistical-analysis** - Statistical testing, power analysis, and APA/AMA reporting
 - **reproducible-research** - Jupyter notebooks, Docker containers, and workflow automation
+- **code-review** - Scientific code review with comprehensive testing and quality checklists
+- **systematic-debugging** - Systematic 4-phase debugging workflow for research code
 
 #### Design & Creative
 - **algorithmic-art** - Generative art using p5.js with seeded randomness
@@ -165,12 +169,14 @@ cluade_skill/
 │   ├── web-artifacts-builder/ # Web 组件创建
 │   ├── webapp-testing/     # Web 应用测试
 │   └── xlsx/               # Excel 表格处理
+├── code-review/            # 科研代码审查（测试与质量检查）
 ├── experiment-tracking/    # 实验追踪与数据管理
 ├── graphical-abstract/     # 学术摘要图创建
 ├── reproducible-research/  # 可重复性计算工作流
 ├── review-paper-writing/   # 综述论文写作
 ├── scientific-plotting/    # 科研数据可视化
 ├── statistical-analysis/   # 统计分析与报告
+├── systematic-debugging/   # 系统化调试工作流
 └── commands/              # 命令模板
 ```
 
@@ -184,6 +190,8 @@ cluade_skill/
 - **experiment-tracking** - 实验室实验追踪、数据管理和 FAIR 原则
 - **statistical-analysis** - 统计检验、功效分析和 APA/AMA 报告规范
 - **reproducible-research** - Jupyter notebooks、Docker 容器化和工作流自动化
+- **code-review** - 科研代码审查，包含完整的测试与质量检查清单
+- **systematic-debugging** - 系统化的四阶段调试流程
 
 #### 设计与创意
 - **algorithmic-art** - 使用 p5.js 的生成式艺术
