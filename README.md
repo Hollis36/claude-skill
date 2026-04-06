@@ -50,9 +50,12 @@ cluade_skill/
 │   ├── web-artifacts-builder/ # Web component creation
 │   ├── webapp-testing/     # Web application testing
 │   └── xlsx/               # Excel spreadsheet handling
+├── experiment-tracking/    # Lab experiment tracking and data management
 ├── graphical-abstract/     # Academic graphical abstract creation
+├── reproducible-research/  # Reproducible computational workflows
 ├── review-paper-writing/   # Literature review / survey paper writing
 ├── scientific-plotting/    # Scientific data visualization
+├── statistical-analysis/   # Statistical analysis and reporting
 └── commands/              # Command templates
 ```
 
@@ -63,6 +66,9 @@ cluade_skill/
 - **graphical-abstract** - Create journal-quality graphical abstracts and TOC figures
 - **review-paper-writing** - Literature review and survey paper writing with MCP bio-research tools
 - **scientific-plotting** - High-quality scientific plotting and data visualization
+- **experiment-tracking** - Lab experiment tracking, data management, and FAIR principles
+- **statistical-analysis** - Statistical testing, power analysis, and APA/AMA reporting
+- **reproducible-research** - Jupyter notebooks, Docker containers, and workflow automation
 
 #### Design & Creative
 - **algorithmic-art** - Generative art using p5.js with seeded randomness
@@ -159,9 +165,12 @@ cluade_skill/
 │   ├── web-artifacts-builder/ # Web 组件创建
 │   ├── webapp-testing/     # Web 应用测试
 │   └── xlsx/               # Excel 表格处理
+├── experiment-tracking/    # 实验追踪与数据管理
 ├── graphical-abstract/     # 学术摘要图创建
+├── reproducible-research/  # 可重复性计算工作流
 ├── review-paper-writing/   # 综述论文写作
 ├── scientific-plotting/    # 科研数据可视化
+├── statistical-analysis/   # 统计分析与报告
 └── commands/              # 命令模板
 ```
 
@@ -172,6 +181,9 @@ cluade_skill/
 - **graphical-abstract** - 创建期刊级别的图形摘要和 TOC 图
 - **review-paper-writing** - 综述论文写作，集成 MCP 生物医学文献检索工具
 - **scientific-plotting** - 高质量科研绘图和数据可视化
+- **experiment-tracking** - 实验室实验追踪、数据管理和 FAIR 原则
+- **statistical-analysis** - 统计检验、功效分析和 APA/AMA 报告规范
+- **reproducible-research** - Jupyter notebooks、Docker 容器化和工作流自动化
 
 #### 设计与创意
 - **algorithmic-art** - 使用 p5.js 的生成式艺术
