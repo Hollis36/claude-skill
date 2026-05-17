@@ -1,166 +1,98 @@
-# Quick Start Guide
+# Quickstart — 5 分钟上手
 
-Get started with Claude Skills in minutes!
+这是 Hollis 的科研知识库，不是通用 skill 商店。本文教你两件事：
+1. 让 agent 接管这个仓库
+2. 起步写一篇新论文
 
-## What are Claude Skills?
+## 一、让 agent 接管
 
-Claude Skills are like instruction manuals that teach Claude to be an expert in specific tasks. Each skill contains specialized knowledge, workflows, and best practices.
+任何 agent 进入此仓库后，第一步读 `CLAUDE.md`，第二步读 `INDEX.md`。
 
-## 5-Minute Quick Start
+如果你用 Claude Code，把仓库 clone 下来直接 `cd` 进去开会话即可：
 
-### Step 1: Choose a Skill
-
-Browse the [Skills Catalog](SKILLS_CATALOG.md) to find a skill that matches your needs.
-
-**Popular choices:**
-- 📝 **paper**: Write academic papers
-- 📊 **scientific-plotting**: Create research plots
-- 🎨 **frontend-design**: Build beautiful web interfaces
-- 📄 **docx**: Work with Word documents
-- 🧪 **mcp-builder**: Create MCP servers
-
-### Step 2: Open the Skill
-
-Navigate to the skill's directory and open the `SKILL.md` file.
-
-Example: [`skills/paper/SKILL.md`](skills/paper/SKILL.md)
-
-### Step 3: Use the Skill
-
-Copy the entire `SKILL.md` content and include it in your conversation with Claude:
-
-```
-I need help with [your task]. Please use this skill:
-
-[Paste SKILL.md content here]
-
-My specific request: [describe what you need]
+```bash
+git clone https://github.com/Hollis36/cluade_skill.git
+cd cluade_skill
+claude  # 启动 Claude Code，自动识别 CLAUDE.md
 ```
 
-### Step 4: Follow the Workflow
+如果想让 slash command 全局可用：
 
-The skill will guide you through the process with:
-- ✅ Step-by-step workflows
-- 💡 Examples and templates  
-- 🛠️ Tool recommendations
-- ⚠️ Best practices and tips
-
-## Examples
-
-### Example 1: Write an Academic Paper
-
-```
-I need to write a research paper about neural networks.
-
-[Paste skills/paper/SKILL.md content]
-
-My research is about: "Efficient Transformer Architectures for NLP"
-Target conference: NeurIPS 2024
+```bash
+ln -s $(pwd)/commands ~/.claude/commands/research
 ```
 
-### Example 2: Create Scientific Plots
+之后任何项目里都能用 `/paper`、`/plot`、`/review` 等。
 
-```
-I have experimental data and need to create publication-quality plots.
+## 二、起步写一篇新论文
 
-[Paste scientific-plotting/SKILL.md content]
+### 1. 复制项目模板
 
-My data: [describe your data]
-Target journal: IEEE format
-```
-
-### Example 3: Build a Web Interface
-
-```
-I want to create a landing page for my product.
-
-[Paste skills/frontend-design/SKILL.md content]
-
-Product: AI-powered task manager
-Style: Modern, minimalist
+```bash
+cp -r projects/_template projects/my-new-paper
+cd projects/my-new-paper
 ```
 
-## Tips for Success
+### 2. 填元数据
 
-### 💡 Tip 1: Be Specific
-Provide clear context and requirements when using skills.
+编辑 `projects/my-new-paper/README.md`，填：
+- 标题
+- 目标投稿（NeurIPS / ICML / ICLR / CVPR / ACL）
+- 截止时间
+- 核心 claim 1 句话
 
-**Good**: "Create a bar chart comparing 5 models with error bars, IEEE format"
-**Better**: "Create a bar chart with error bars comparing accuracy of 5 models: Model A (0.85±0.03), Model B (0.82±0.04), Model C (0.88±0.02), Model D (0.79±0.05), Model E (0.86±0.03). IEEE double-column format (7.16 inches wide)."
+### 3. 让 agent 接手
 
-### 💡 Tip 2: Combine Skills
-You can use multiple skills together for complex tasks.
+```
+# 在 Claude Code 中
+我开始 projects/my-new-paper，目标投 NeurIPS 2026。
+帮我看一下 venues/neurips.md，确认 deadline 和格式要求，
+然后帮我起草 Introduction（参考 templates/intro-hook.md）。
+```
 
-Example: Use `paper` + `scientific-plotting` + `graphical-abstract` for complete research paper workflow.
+agent 会自动读：
+- `knowledge/venues/neurips.md` — 格式 / 截止 / checklist
+- `knowledge/templates/intro-hook.md` — Intro 模板
+- 调 `skills/paper/` 起草具体内容
 
-### 💡 Tip 3: Iterate
-Skills work best with iteration. Start with the workflow, review outputs, and refine.
+## 常见任务速查
 
-### 💡 Tip 4: Customize
-Feel free to modify skills to match your specific needs. Skills are templates, not rigid rules.
+| 我要做什么 | 输入 | 用到的资源 |
+|----------|------|----------|
+| 起草任意章节 | `/paper 写 Method 3.2 节，主题是 ...` | `skills/paper/` + `templates/method-section.md` |
+| 写综述 | `/review 关于 X 主题` | `skills/review-paper-writing/` |
+| 画论文图 | `/plot 用 data/results.csv 画主表 bar chart` | `skills/scientific-plotting/` + `methods/figure-standards.md` |
+| 调试代码 | `/debug 训练 loss 出现 NaN` | `skills/systematic-debugging/` |
+| 跑统计检验 | `/stat 比较 5 seed 下方法 A vs B` | `methods/statistical-testing-ml.md` |
+| 复现性检查 | `/repro 投稿前自查` | `methods/reproducibility-checklist.md` |
+| 写 rebuttal | `/rebuttal` 然后粘贴 reviews | `templates/rebuttal.md` |
+| 查会议信息 | `/venue NeurIPS` | `knowledge/venues/neurips.md` |
 
-## Common Workflows
+## 知识库怎么扩
 
-### Academic Research Workflow
-1. **Write paper**: Use `skills/paper/SKILL.md`
-2. **Create plots**: Use `scientific-plotting/SKILL.md`
-3. **Design TOC figure**: Use `graphical-abstract/SKILL.md`
+- **新文献笔记**：复制 `knowledge/references/_template.md`，命名 `firstauthor-year-keyword.md`
+- **新会议**：在 `knowledge/venues/` 加 `<venue>.md`，参考已有结构
+- **新模板**：在 `knowledge/templates/` 加，登记到 `INDEX.md`
+- **新方法卡**：在 `knowledge/methods/` 加，登记到 `INDEX.md`
 
-### Review Paper Writing Workflow
-1. **Define scope & search**: Use `review-paper-writing/SKILL.md` (Phases 1-2)
-2. **Organize & synthesize**: Use Literature Review + comparison matrix (Phase 3)
-3. **Write & review**: Use Scientific Writer plugin + Peer Review (Phases 4-6)
-4. **Format & submit**: Use venue templates (Phase 7)
+## 不该放的东西
 
-### Web Development Workflow
-1. **Design interface**: Use `skills/frontend-design/SKILL.md`
-2. **Build components**: Use `skills/web-artifacts-builder/SKILL.md`
-3. **Test application**: Use `skills/webapp-testing/SKILL.md`
+- ❌ 完整论文草稿（用 `projects/`，自动 gitignore）
+- ❌ 原始数据集 / 模型权重（太大，用外部存储）
+- ❌ 私人 / 机密信息（API key、合作者隐私）
+- ❌ 一时兴起的实验代码（沉淀到 skill 再进库）
 
-### Document Creation Workflow
-1. **Draft content**: Use `skills/doc-coauthoring/SKILL.md`
-2. **Create Word doc**: Use `skills/docx/SKILL.md`
-3. **Generate PDF**: Use `skills/pdf/SKILL.md`
+## 故障排查
 
-### MCP Development Workflow
-1. **Design server**: Use `skills/mcp-builder/SKILL.md`
-2. **Build interface**: Use `skills/web-artifacts-builder/SKILL.md`
-3. **Test integration**: Use `skills/webapp-testing/SKILL.md`
+| 症状 | 处理 |
+|------|------|
+| agent 没注意到 CLAUDE.md | 显式说"先读 CLAUDE.md 和 INDEX.md" |
+| agent 选错 skill | 直接用 slash command 强制指定 |
+| 知识库内容过时 | 提醒 agent 用 WebFetch 验证再回答 |
+| slash command 不生效 | 检查 `~/.claude/commands/` symlink 是否存在 |
 
-## Troubleshooting
+## 下一步
 
-### Problem: Skill output doesn't match my needs
-**Solution**: Provide more specific requirements and examples of what you want.
-
-### Problem: Skill is too verbose
-**Solution**: Ask Claude to "summarize" or "be more concise" based on the skill.
-
-### Problem: Need to modify a skill
-**Solution**: Copy the skill, modify it locally, and use your customized version.
-
-### Problem: Combining multiple skills
-**Solution**: Reference multiple skills sequentially: "First use skill A for X, then use skill B for Y"
-
-## Next Steps
-
-1. 📚 **Explore**: Browse the [Skills Catalog](SKILLS_CATALOG.md) to see all available skills
-2. 🎯 **Practice**: Try a skill with a real task
-3. 🛠️ **Customize**: Adapt skills to your workflow
-4. 🤝 **Contribute**: Create and share your own skills ([Contributing Guide](CONTRIBUTING.md))
-
-## Resources
-
-- [Full Documentation](README.md) - Complete repository overview
-- [Skills Catalog](SKILLS_CATALOG.md) - Detailed skill reference
-- [Contributing Guide](CONTRIBUTING.md) - Create your own skills
-- [License Information](LICENSE.md) - Licensing details
-
-## Support
-
-- 🐛 **Issues**: Report bugs or request features
-- 💬 **Discussions**: Ask questions and share ideas
-- ⭐ **Star**: Star the repo if you find it useful!
-
----
-
-Ready to get started? Pick a skill from the [catalog](SKILLS_CATALOG.md) and dive in! 🚀
+- 看 [`INDEX.md`](INDEX.md) 了解所有 skill / 知识条目
+- 看 [`SKILLS_CATALOG.md`](SKILLS_CATALOG.md) 了解每个 skill 详细说明
+- 看 [`CONTRIBUTING.md`](CONTRIBUTING.md) 学怎么新增 skill

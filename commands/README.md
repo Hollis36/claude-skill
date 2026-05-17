@@ -1,11 +1,36 @@
-# Commands Directory
+# Commands — Slash Commands 定义
 
-This directory contains command templates and shortcuts for commonly used skills.
+这些 `.md` 文件是 slash command 的源定义。Hollis 直接输入 `/paper`、`/plot` 等触发对应工作流。
 
-## Note
+## 已有命令
 
-The `paper.md` file is a shorthand version of the academic paper writing skill. For the full skill definition with proper metadata, please refer to:
+| 命令 | 主要 skill / 知识 | 一句话用途 |
+|------|------------------|-----------|
+| `/paper` | `skills/paper/` | 起草任意论文章节、整体规划 |
+| `/review` | `skills/review-paper-writing/` | 综述 / survey 写作 |
+| `/plot` | `skills/scientific-plotting/` + `figure-standards.md` | 论文级绘图 |
+| `/debug` | `skills/systematic-debugging/` | 4 阶段调试科研代码 |
+| `/stat` | `skills/statistical-analysis/` + `statistical-testing-ml.md` | 统计检验与报告 |
+| `/repro` | `skills/reproducible-research/` + `reproducibility-checklist.md` | 复现性检查 |
+| `/rebuttal` | `knowledge/templates/rebuttal.md` | Rebuttal / Response 起草 |
+| `/venue` | `knowledge/venues/` | 目标会议投稿信息查询 |
 
-- **Full Skill**: [`../skills/paper/SKILL.md`](../skills/paper/SKILL.md)
+## 如何安装到本地 Claude Code
 
-This commands directory is kept for backward compatibility and quick reference.
+```bash
+# 把整个 commands/ 目录 symlink 到本地
+ln -s $(pwd)/commands ~/.claude/commands/research
+
+# 或单独 link 某个
+ln -s $(pwd)/commands/paper.md ~/.claude/commands/paper.md
+```
+
+## 新增命令
+
+1. 在 `commands/` 下新建 `<name>.md`
+2. 文件结构：
+   - 标题：`# /<name> — <一句话用途>`
+   - 引用相关 skill / 知识库路径
+   - 写流程步骤
+   - 末尾留 `$ARGUMENTS` 接用户参数
+3. 在本 README + 根 `INDEX.md` 登记一行

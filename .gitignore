@@ -80,3 +80,9 @@ yarn.lock
 # OS and Editor artifacts only - allow media and code files
 # Media files are part of examples and references
 
+# Research projects (private papers/data — only template is tracked)
+projects/*
+!projects/README.md
+!projects/_template/
+!projects/_template/**
+

@@ -1,0 +1,56 @@
+% Main LaTeX file — 根据目标会议替换 documentclass 和 .sty
+% 默认用 NeurIPS 模板示例；ICML / ICLR / CVPR 见 knowledge/venues/
+
+\documentclass{article}
+\usepackage[final]{neurips_2025}  % 或 \usepackage{neurips_2025}（投稿时移除 final）
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\title{[Title]}
+
+\author{%
+  Anonymous Authors \\
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  [Abstract: 150–250 words. Problem + Method + Results + Significance.]
+\end{abstract}
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_method}
+\input{sections/04_experiments}
+\input{sections/05_discussion}
+\input{sections/06_conclusion}
+
+\section*{Limitations}
+\input{sections/limitations}
+
+\section*{Broader Impact}
+\input{sections/broader_impact}
+
+\bibliographystyle{plainnat}
+\bibliography{../refs/main}
+
+\newpage
+\appendix
+\input{sections/appendix}
+
+\end{document}

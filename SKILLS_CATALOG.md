@@ -1,175 +1,171 @@
 # Skills Catalog
 
-Complete reference for all skills in this repository. Click on skill names to view full documentation.
+完整 skill 列表。优先看 [`INDEX.md`](INDEX.md) — 那里按研究阶段 + 标签组织，对 agent 选择更友好。
 
-## Table of Contents
+## 分类
 
-- [Academic & Research](#academic--research)
-- [Design & Creative](#design--creative)  
-- [Document Creation](#document-creation)
-- [Development & Tools](#development--tools)
-- [Communication](#communication)
+- [科研 Skill（优先）](#科研-skill优先)
+- [设计 / 视觉](#设计--视觉)
+- [文档处理](#文档处理)
+- [开发 / 工具](#开发--工具)
+- [协作 / 通讯](#协作--通讯)
 
 ---
 
-## Academic & Research
+## 科研 Skill（优先）
 
 ### [paper](skills/paper/SKILL.md)
-**多学科学术论文写作助手** - Academic paper writing assistant supporting CS/AI, biomedical, chemistry, physics, and materials science. Features 2025-2026 AI tool integration (Semantic Scholar, Elicit, Research Rabbit, Scite.ai), AI ethics & academic integrity guidelines, multi-journal template support (NeurIPS/ICML/Nature/IEEE/ACS/Elsevier), enhanced LaTeX support, and Rebuttal/Response Letter writing guide.
+**多学科学术论文写作助手** — CS/AI、生物医学、化学、物理、材料。集成 2025-2026 AI 工具（Semantic Scholar、Elicit、Research Rabbit、Scite.ai），多期刊模板（NeurIPS/ICML/Nature/IEEE/ACS/Elsevier），Rebuttal/Response Letter 指南。
 
-**Use when**: Writing research papers, organizing paper structure, drafting academic content, responding to reviewer comments
+**何时用**：写论文、规划结构、起草章节、回复 reviewer。
 
-### [graphical-abstract](graphical-abstract/SKILL.md)
-**摘要结构图创建助手** - Create journal-quality graphical abstracts and table of contents (TOC) figures. Supports Python (matplotlib/drawsvg), HTML/CSS/SVG, TikZ/LaTeX, Plotly+Kaleido, Figma MCP, Banana Pro MCP. Includes 2025-2026 journal size specs (PNAS, JACS, Angewandte Chemie, Advanced Materials, Lancet, PLOS ONE), modern design trends (Glassmorphism, Isometric), and accessibility guidelines.
+### [review-paper-writing](skills/review-paper-writing/SKILL.md)
+**综述论文写作** — MCP 生物医学工具（PubMed、bioRxiv、ChEMBL、ClinicalTrials.gov）+ AI 工具（Semantic Scholar、OpenAlex、Elicit、Research Rabbit、Connected Papers、Consensus、Scite.ai）+ PRISMA 2020 + Meta-Analysis 工作流。
 
-**Use when**: Creating graphical abstracts, TOC figures, research flow diagrams, mechanism illustrations
+**何时用**：综述、survey、systematic review、meta-analysis。
 
-### [review-paper-writing](review-paper-writing/SKILL.md)
-**综述论文写作助手** - Comprehensive guide to writing literature review and survey papers. Integrates MCP bio-research tools (PubMed, bioRxiv, ChEMBL, ClinicalTrials.gov), 2025-2026 AI tools (Semantic Scholar, OpenAlex, Elicit, Research Rabbit, Connected Papers, Consensus, Scite.ai), PRISMA 2020 updated guidelines, Meta-Analysis workflow (forest plots, funnel plots, heterogeneity analysis), and AI ethics guide for systematic reviews.
+### [scientific-plotting](skills/scientific-plotting/SKILL.md)
+**论文级绘图** — SciencePlots v2.2.1（一行 IEEE / Nature / ACS 期刊样式）+ Plotly 3D + Plotnine + Statannotations + 多期刊格式规范。
 
-**Use when**: Writing literature reviews, survey papers, systematic reviews, meta-analyses; searching academic databases; organizing and synthesizing research findings
+**何时用**：所有图表生成。配套 `knowledge/methods/figure-standards.md`。
 
-### [scientific-plotting](scientific-plotting/SKILL.md)
-**科研绘图助手** - Create high-quality scientific plots for academic publications. Features SciencePlots v2.2.1 (one-line IEEE/Nature/ACS journal styling), Plotly interactive 3D visualization, Plotnine (Python ggplot2), Statannotations for statistical significance brackets, advanced chart types (radar, Sankey, facet grids, waterfall, donut), font embedding best practices (pdf.fonttype=42), and multi-journal format specs (IEEE, Nature, Science, ACS, RSC, Elsevier).
+### [graphical-abstract](skills/graphical-abstract/SKILL.md)
+**期刊图形摘要** — Python (matplotlib/drawsvg)、HTML/CSS/SVG、TikZ/LaTeX、Plotly+Kaleido、Figma MCP、Banana Pro MCP。2025-2026 期刊尺寸规格（PNAS、JACS、Angewandte、Advanced Materials、Lancet、PLOS ONE）。
 
-**Use when**: Plotting data, creating figures for papers, scientific data visualization, statistical analysis visualization
+**何时用**：期刊要求 graphical abstract / TOC figure。
+
+### [experiment-tracking](skills/experiment-tracking/SKILL.md)
+**实验追踪 + 数据管理** — wandb / mlflow / 实验日志 / FAIR 原则。
+
+**何时用**：设计实验追踪方案、整理 run 数据。
+
+### [statistical-analysis](skills/statistical-analysis/SKILL.md)
+**统计分析 + 报告** — 显著性检验、power analysis、APA / AMA 报告规范。
+
+**何时用**：显著性检验、效应量、报告统计结果。配套 `knowledge/methods/statistical-testing-ml.md`。
+
+### [reproducible-research](skills/reproducible-research/SKILL.md)
+**可复现工作流** — Jupyter / Docker / Poetry / 工作流自动化。
+
+**何时用**：准备复现包、写 Reproducibility 章节。配套 `knowledge/methods/reproducibility-checklist.md`。
+
+### [code-review](skills/code-review/SKILL.md)
+**科研代码审查** — 完整测试 + 质量检查清单。
+
+**何时用**：提交代码前自查、code release 前评审。
+
+### [systematic-debugging](skills/systematic-debugging/SKILL.md)
+**4 阶段系统化调试** — 复现 / 假设 / 定位 / 修复 + 防回归。
+
+**何时用**：实验结果异常、训练不收敛、数值不稳定。
 
 ---
 
-## Design & Creative
+## 设计 / 视觉
 
 ### [algorithmic-art](skills/algorithmic-art/SKILL.md)
-Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Focuses on generative art, flow fields, and particle systems.
-
-**Use when**: Creating generative art, algorithmic art, interactive visualizations, code-based art
+p5.js 生成式艺术，seeded randomness + 交互参数探索。
 
 ### [canvas-design](skills/canvas-design/SKILL.md)
-Create beautiful visual art in PNG and PDF documents using design philosophy. Ideal for posters, static designs, and artistic pieces.
-
-**Use when**: Creating posters, visual designs, art pieces, static graphics
+PNG / PDF 视觉创作，海报、静态设计。
 
 ### [frontend-design](skills/frontend-design/SKILL.md)
-Create distinctive, production-grade frontend interfaces with high design quality. Generates creative, polished code and UI design that avoids generic AI aesthetics.
-
-**Use when**: Building web components, landing pages, dashboards, React components, styling web UIs
+高质量前端 UI，避免泛 AI 美学。
 
 ### [theme-factory](skills/theme-factory/SKILL.md)
-Toolkit for styling artifacts with themes. Includes 10 pre-set themes with colors/fonts that can be applied to slides, docs, reports, HTML pages, or generate custom themes on-the-fly.
-
-**Use when**: Applying consistent styling, creating color themes, theming presentations or documents
+10 个预设主题，可应用于 slides / docs / HTML。
 
 ### [brand-guidelines](skills/brand-guidelines/SKILL.md)
-Applies Anthropic's official brand colors and typography to artifacts. Ensures consistent brand look-and-feel across materials.
-
-**Use when**: Creating branded materials, applying company design standards, maintaining visual consistency
+Anthropic 品牌色彩 + 字体。
 
 ---
 
-## Document Creation
+## 文档处理
 
 ### [docx](skills/docx/SKILL.md)
-Comprehensive Microsoft Word document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction.
-
-**Use when**: Creating/editing Word documents, working with tracked changes, adding comments, professional document tasks
+Word 文档创建 / 编辑 / 分析，支持 tracked changes、批注、格式保留。
 
 ### [pdf](skills/pdf/SKILL.md)
-Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms.
-
-**Use when**: Filling PDF forms, processing PDFs at scale, extracting data from PDFs, creating/manipulating PDFs
+PDF 提取文本 / 表格、创建、合并 / 拆分、表单处理。
 
 ### [pptx](skills/pptx/SKILL.md)
-Presentation creation, editing, and analysis for PowerPoint files. Supports layouts, speaker notes, comments, and content manipulation.
-
-**Use when**: Creating/editing PowerPoint presentations, working with slide layouts, adding speaker notes
+PowerPoint 演示文稿，layouts、speaker notes、批注。
 
 ### [xlsx](skills/xlsx/SKILL.md)
-Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization.
-
-**Use when**: Working with Excel files, creating spreadsheets with formulas, data analysis, spreadsheet visualization
+Excel 电子表格，公式、数据分析、可视化。
 
 ---
 
-## Development & Tools
+## 开发 / 工具
 
 ### [mcp-builder](skills/mcp-builder/SKILL.md)
-Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services. Supports Python (FastMCP) and Node/TypeScript (MCP SDK).
-
-**Use when**: Building MCP servers, integrating external APIs, creating LLM tool integrations
+MCP server 开发（Python FastMCP / TypeScript SDK）。
 
 ### [web-artifacts-builder](skills/web-artifacts-builder/SKILL.md)
-Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend technologies (React, Tailwind CSS, shadcn/ui).
-
-**Use when**: Building complex web artifacts requiring state management, routing, or shadcn/ui components
+Claude.ai HTML artifacts（React / Tailwind / shadcn）。
 
 ### [webapp-testing](skills/webapp-testing/SKILL.md)
-Toolkit for interacting with and testing local web applications using Playwright. Supports verifying functionality, debugging UI, capturing screenshots, viewing logs.
-
-**Use when**: Testing web applications, debugging UI behavior, automated browser testing
+Playwright 测试本地 web app。
 
 ### [skill-creator](skills/skill-creator/SKILL.md)
-Guide for creating effective skills. Provides best practices, structure guidelines, and examples for creating new skills that extend Claude's capabilities.
-
-**Use when**: Creating new skills, updating existing skills, learning skill development best practices
+创建新 skill 的指南。
 
 ---
 
-## Communication
+## 协作 / 通讯
 
 ### [doc-coauthoring](skills/doc-coauthoring/SKILL.md)
-Guide users through structured workflow for co-authoring documentation. Helps efficiently transfer context, refine content through iteration, and verify docs work for readers.
-
-**Use when**: Writing documentation, proposals, technical specs, decision docs, structured content
+结构化协作文档写作。
 
 ### [internal-comms](skills/internal-comms/SKILL.md)
-Resources for writing internal communications using company-preferred formats. Covers status reports, leadership updates, newsletters, FAQs, incident reports, project updates.
-
-**Use when**: Writing internal communications, status reports, company newsletters, project updates
+内部沟通：status report、leadership update、newsletter、FAQ、incident report。
 
 ### [slack-gif-creator](skills/slack-gif-creator/SKILL.md)
-Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts.
-
-**Use when**: Creating animated GIFs for Slack, optimizing animations for messaging platforms
+Slack 优化的动图创建。
 
 ---
 
 ## Quick Reference
 
-| Skill | Primary Language | Key Tools |
-|-------|-----------------|-----------|
-| paper | 中文/Chinese | LaTeX, BibTeX, Semantic Scholar, Elicit, Scite.ai |
-| graphical-abstract | 中文/Chinese | Python, matplotlib, drawsvg, Plotly, HTML/SVG, TikZ |
-| review-paper-writing | 中文/English | Semantic Scholar, OpenAlex, Elicit, Research Rabbit, MCP Bio-Research |
-| scientific-plotting | 中文/Chinese | SciencePlots, Plotly, Plotnine, Statannotations, matplotlib, seaborn, R |
-| algorithmic-art | English | p5.js, JavaScript |
-| canvas-design | English | Design tools, Python |
-| frontend-design | English | React, HTML/CSS, JavaScript |
-| theme-factory | English | Color theory, CSS |
-| brand-guidelines | English | Brand assets, Design systems |
+| Skill | 主要语言 | 核心工具 |
+|-------|---------|---------|
+| paper | 中文 | LaTeX、BibTeX、Semantic Scholar、Elicit、Scite.ai |
+| review-paper-writing | 中英 | Semantic Scholar、OpenAlex、Elicit、Research Rabbit、MCP Bio-Research |
+| scientific-plotting | 中文 | SciencePlots、Plotly、Plotnine、Statannotations、matplotlib、seaborn、R |
+| graphical-abstract | 中文 | Python、matplotlib、drawsvg、Plotly、HTML/SVG、TikZ |
+| experiment-tracking | 中英 | wandb、mlflow、FAIR |
+| statistical-analysis | 中英 | scipy、statsmodels、R |
+| reproducible-research | 中英 | Jupyter、Docker、Poetry |
+| code-review | 中英 | pytest、ruff、mypy |
+| systematic-debugging | 中英 | pdb、git bisect、logging |
+| algorithmic-art | English | p5.js、JavaScript |
+| canvas-design | English | Design tools、Python |
+| frontend-design | English | React、HTML/CSS、JavaScript |
+| theme-factory | English | Color theory、CSS |
+| brand-guidelines | English | Brand assets、Design systems |
 | docx | English | python-docx |
-| pdf | English | PyPDF2, pdfplumber |
+| pdf | English | PyPDF2、pdfplumber |
 | pptx | English | python-pptx |
-| xlsx | English | openpyxl, pandas |
-| mcp-builder | English | FastMCP, TypeScript |
-| web-artifacts-builder | English | React, Tailwind, shadcn/ui |
+| xlsx | English | openpyxl、pandas |
+| mcp-builder | English | FastMCP、TypeScript |
+| web-artifacts-builder | English | React、Tailwind、shadcn/ui |
 | webapp-testing | English | Playwright |
-| skill-creator | English | Markdown, Documentation |
+| skill-creator | English | Markdown、Documentation |
 | doc-coauthoring | English | Documentation workflows |
 | internal-comms | English | Corporate communications |
 | slack-gif-creator | English | GIF optimization |
 
 ---
 
-## License Information
+## License
 
-Individual skills may have different licenses. Always check the `LICENSE.txt` file in each skill directory for specific terms. Common license types:
-
-- **Open/Permissive**: Skills with "Complete terms in LICENSE.txt"
-- **Proprietary**: Skills marked with "Proprietary. LICENSE.txt has complete terms"
+各 skill 看自己的 `LICENSE.txt`。总览见 [`LICENSE.md`](LICENSE.md)。
 
 ---
 
 ## Navigation
 
-- [Back to README](README.md)
-- [Contributing Guidelines](CONTRIBUTING.md)
-- [Skills Directory](skills/)
+- [README](README.md)
+- [INDEX](INDEX.md) — 按阶段 / 标签
+- [QUICKSTART](QUICKSTART.md)
+- [CONTRIBUTING](CONTRIBUTING.md)
