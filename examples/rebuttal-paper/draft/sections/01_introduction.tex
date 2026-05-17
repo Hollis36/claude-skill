@@ -1,0 +1,43 @@
+\section{Introduction}
+
+Large language models have transformed natural language processing, yet
+long-context inference remains expensive: attention scales quadratically with
+sequence length, and KV-cache memory grows linearly. Beyond 16K tokens,
+both latency and memory become prohibitive on commodity hardware
+\citep{vaswani2017attention, dao2023flashattention2}.
+
+Prior work falls into two categories. \emph{Token-dropping} methods such as
+H2O \citep{zhang2023h2o} and StreamingLLM \citep{xiao2023streamingllm} discard
+tokens via attention-score heuristics, achieving up to 5$\times$ speedup but
+losing 4--8 points of accuracy on long-context benchmarks. \emph{Optimized
+attention} methods such as FlashAttention-2 \citep{dao2023flashattention2}
+retain all tokens with hardware-aware kernels, preserving accuracy but with
+limited speedup at very long contexts. Both lines treat token selection as a
+fixed property of the inference engine; neither learns \emph{which} tokens
+matter for a given query.
+
+In this work, we propose \textsc{AttnRoute}, a lightweight learned router that
+selects KV-cache entries dynamically per query. Our key insight is that
+\emph{token importance is learnable from the same supervision that trains the
+base model}: by adding a per-layer router head with explicit sparsity
+supervision, we obtain selection policies that outperform fixed heuristics
+while requiring only 0.3\% additional parameters.
+
+% [TODO: add teaser figure reference once figure_1 is finalized]
+
+\textbf{Contributions.}
+\begin{itemize}
+    \item We identify a systematic gap in fixed-heuristic token selection:
+          across three long-context benchmarks, learned selection outperforms
+          the best heuristic (H2O) by 6.3--8.8 percentage points.
+    \item We propose \textsc{AttnRoute}, a per-layer router trained jointly
+          with the base model under a sparsity-supervised objective.
+    \item We demonstrate that \textsc{AttnRoute} achieves 30\% latency
+          reduction over FlashAttention-2 with $+1.8$--$2.5$ pp accuracy
+          improvement on LongBench, RULER, and InfiniteBench
+          ($p<0.05$, paired Wilcoxon, $n=5$).
+    \item We release pretrained checkpoints, training code, and a
+          one-command reproduction script.
+\end{itemize}
+
+% [TODO: section roadmap paragraph — consider dropping per recent NeurIPS practice]

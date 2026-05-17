@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[final]{neurips_2026}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\title{Attention Routing for Long-Context Inference}
+
+\author{Anonymous Authors}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Long-context inference for large language models suffers from prohibitive
+memory and latency costs, scaling quadratically with sequence length. Existing
+approaches either drop tokens via fixed heuristics (sacrificing accuracy) or
+retain all tokens (sacrificing speed). We introduce \textsc{AttnRoute}, a
+lightweight learned router that selects which KV-cache entries to attend to,
+trained jointly with the base model. On three long-context benchmarks
+(LongBench, RULER, InfiniteBench) using Llama-2-7B, \textsc{AttnRoute} reduces
+inference latency by 30\% relative to full attention while achieving
+$+1.8$ pp accuracy on LongBench, $+2.4$ pp on RULER, and $+2.5$ pp on
+InfiniteBench compared to FlashAttention-2. All gains are significant at
+$p<0.05$ (paired Wilcoxon, $n=5$). Code is released at
+\url{https://anonymous.4open.science/r/attention-routing-rebuttal/}.
+\end{abstract}
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_method}
+\input{sections/04_experiments}
+\input{sections/05_discussion}
+\input{sections/06_conclusion}
+
+\section*{Limitations}
+\input{sections/limitations}
+
+\section*{Broader Impact}
+\input{sections/broader_impact}
+
+\bibliographystyle{plainnat}
+\bibliography{../refs/main}
+
+\newpage
+\appendix
+\input{sections/appendix}
+
+\end{document}

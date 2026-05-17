@@ -45,11 +45,12 @@ Agent 按此索引选择资源。每行格式：`路径 | 标签 | 适用阶段 
 | `knowledge/references/_template.md` | 文献笔记模板 | lit-review |
 | `knowledge/glossary.md` | CS/AI 中英术语对照 | write |
 
-## 项目模板
+## 项目模板与示例
 
 | 路径 | 用途 |
 |------|------|
-| `projects/_template/` | 新论文项目骨架（复制后改名即可起步） |
+| `projects/_template/` | 新论文项目骨架（复制后改名即可起步；`/init` 命令也用它） |
+| `examples/rebuttal-paper/` | 完整填好的示范项目（合成数据，演示 rebuttal 期工作流；agent 可作 few-shot 参考） |
 
 ## Slash Commands
 

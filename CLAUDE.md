@@ -62,11 +62,17 @@
 - 禁止编造引用 — 不确定的引用标 `[CITE: 描述要找的文献]` 让 Hollis 补
 - 公式优先 LaTeX，符号沿用领域惯例（参考 `knowledge/glossary.md`）
 
+### 参考与示例
+
+- `examples/rebuttal-paper/` 是一个**完整填好的合成示范项目**（NeurIPS rebuttal phase）。
+  当 Hollis 问"这个该长什么样"或起新项目时，agent 可参照其结构。
+  数据是合成的，不要当真实结果引用。
+
 ### 已知约束
 
 - 此环境是**临时容器**（Claude Code on the web），改动要 commit + push 才保留
 - 当前开发分支：`claude/research-skills-database-wUw3A`
-- 仓库**不放具体论文草稿和原始数据**，只放可复用的方法和模板
+- 仓库**不放具体论文草稿和原始数据**，只放可复用的方法和模板（`examples/` 例外，是合成示范）
 
 ## 维护原则
 
