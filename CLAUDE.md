@@ -32,11 +32,22 @@
 
 ### 任务进来时，按此顺序决策
 
-1. **先读 `INDEX.md`** — 找到匹配当前任务的 skill 或知识条目
-2. **若是论文写作**：先看 `knowledge/templates/` 是否已有对应章节模板，再看 `knowledge/venues/` 是否有目标会议的格式约束
-3. **若是方法学问题**（实验设计、统计、消融）：先查 `knowledge/methods/`，再回退到对应 skill
-4. **若是绘图**：直接调 `skills/scientific-plotting/`，配色和样式遵循 `knowledge/methods/figure-standards.md`（若存在）
-5. **找不到匹配**：诚实告知 Hollis，不要硬套不相关的 skill
+1. **若用户在 `projects/<name>/` 下工作**：先读该项目的 `WORKFLOW.md`（项目操作手册，定义 `/morning` `/exp` `/write` 三种会话模式 + 红线 + 文件契约）。这优先于下面所有步骤。
+2. **先读 `INDEX.md`** — 找到匹配当前任务的 skill 或知识条目
+3. **若是论文写作**：先看 `knowledge/templates/` 是否已有对应章节模板，再看 `knowledge/venues/` 是否有目标会议的格式约束
+4. **若是方法学问题**（实验设计、统计、消融）：先查 `knowledge/methods/`，再回退到对应 skill
+5. **若是绘图**：直接调 `skills/scientific-plotting/`，配色和样式遵循 `knowledge/methods/figure-standards.md`（或项目内 `figures/matplotlib_settings.py`）
+6. **找不到匹配**：诚实告知 Hollis，不要硬套不相关的 skill
+
+### 项目内的工作流（重要）
+
+当 Hollis 在 `projects/<name>/` 下工作时，agent 进入"项目模式"：
+
+- **`/morning`**（每天开局）— 读 README + run_log + rebuttal-tracker，给 4 段输出（状态 / 今日 3 件事 / 风险 / 等确认），**不动手**
+- **`/exp`**（跑实验）— 强约束落 `data/results.csv` (append-only) + `data/run_log.md`，每次预检 + 跑前确认
+- **`/write`**（起草 / 改稿）— 同作者式写作，**直接写文件**，数字溯源到 results.csv，引用不编
+
+完整规范在每个项目的 `WORKFLOW.md`（继承自 `projects/_template/WORKFLOW.md`）。
 
 ### Slash command 与自动匹配并存
 
