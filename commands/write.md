@@ -25,13 +25,19 @@
 - **数字必须可溯源** — 来自 `data/results.csv` 第 N 行，或在评论里注明
 
 ### Step 3：自查清单（每次产出后跑）
-- [ ] active voice
-- [ ] avg sentence ≤ 25 words
-- [ ] 没有"good"、"extensive"、"various"、"significantly"（除非带 p-value）
-- [ ] 数字与 `data/results.csv` 一致
-- [ ] 引用全部 `[CITE: ...]` 或真实 BibTeX key
+
+**对照 `knowledge/methods/writing-style-checks.md` 全部规则**，最少检查：
+- [ ] active voice — 没有 "It is shown that" / "has been" 类被动套话
+- [ ] avg sentence ≤ 25 words；最长 ≤ 40 words
+- [ ] 弱词黑名单：good / extensive / various / significantly（不带 p）/ delve into / utilize / leverage
+- [ ] 量化 claim — 没有"good performance" 这种空话
+- [ ] 数字与 `data/results.csv` 一致（手算 mean 验证关键值）
+- [ ] 引用全部 `[CITE: ...]` 或真实 BibTeX key（在 `refs/main.bib` 能找到）
 - [ ] 字数符合 venue 限制（rebuttal 尤其严）
-- [ ] 公式 LaTeX，符号与全文一致
+- [ ] 公式 LaTeX，符号与全文 + `knowledge/glossary.md` 一致
+- [ ] 中式英语扫描：是否有"as we all know"、"Last but not least"、"pave the way"
+
+命中要在报告里 flag，可建议替换，但**不擅自改用户已写的内容**（除非是新起草段）。
 
 ### Step 4：写入文件
 - **直接写文件**（用 Edit / Write），不只在 chat 里贴

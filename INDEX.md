@@ -29,6 +29,7 @@ Agent 按此索引选择资源。每行格式：`路径 | 标签 | 适用阶段 
 | `knowledge/methods/statistical-testing-ml.md` | ML 论文专用统计检验（多 seed、配对、Wilcoxon） | analyze |
 | `knowledge/methods/figure-standards.md` | 期刊级图表规范（DPI、字号、配色、字体） | figure |
 | `knowledge/methods/reproducibility-checklist.md` | NeurIPS/ICML reproducibility checklist 对照 | submit |
+| `knowledge/methods/writing-style-checks.md` | 英文写作风格红线 + 弱词黑名单 + 自动扫描 | write revise |
 | `knowledge/templates/intro-hook.md` | Introduction 章节常见开篇模板 | write |
 | `knowledge/templates/related-work-structure.md` | Related Work 三种组织方式 | write |
 | `knowledge/templates/method-section.md` | Method 章节骨架 | write |
@@ -59,6 +60,7 @@ Agent 按此索引选择资源。每行格式：`路径 | 标签 | 适用阶段 
 | `/morning` | 每日开局 — 列今日 3 件事 + 风险预警，不动手 |
 | `/exp` | 跑 / 补实验，强约束落 `data/results.csv` + `run_log.md` |
 | `/write` | 深参与起草 / 改稿，直接写文件 |
+| `/check` | 投稿前自查 — 结构 + 英文风格 + 数字一致性 |
 
 **领域 skill**（按任务触发）：
 | 命令 | 调用的 skill / 知识 |
