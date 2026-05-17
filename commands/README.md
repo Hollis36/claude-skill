@@ -4,6 +4,14 @@
 
 ## 已有命令
 
+**会话模式**（项目内每天用）：
+| 命令 | 用途 |
+|------|------|
+| `/morning` | 每日开局，列今日 3 件事 + 风险预警，不动手等确认 |
+| `/exp` | 跑 / 补实验，强约束落 `data/results.csv` + `run_log.md` |
+| `/write` | 深参与起草 / 改稿，直接写文件 |
+
+**领域 skill**（按任务触发）：
 | 命令 | 主要 skill / 知识 | 一句话用途 |
 |------|------------------|-----------|
 | `/paper` | `skills/paper/` | 起草任意论文章节、整体规划 |
@@ -14,6 +22,8 @@
 | `/repro` | `skills/reproducible-research/` + `reproducibility-checklist.md` | 复现性检查 |
 | `/rebuttal` | `knowledge/templates/rebuttal.md` | Rebuttal / Response 起草 |
 | `/venue` | `knowledge/venues/` | 目标会议投稿信息查询 |
+
+**关系**：`/morning` 决定今天用哪个 `/exp` `/write` 或领域 skill。`/exp` 跑完数据可能触发 `/plot` 重生成图，再触发 `/write` 把数字写进 rebuttal。
 
 ## 如何安装到本地 Claude Code
 

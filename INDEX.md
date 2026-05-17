@@ -52,6 +52,14 @@ Agent 按此索引选择资源。每行格式：`路径 | 标签 | 适用阶段 
 
 ## Slash Commands
 
+**会话模式**（项目内每天用，配合 `projects/<name>/WORKFLOW.md`）：
+| 命令 | 用途 |
+|------|------|
+| `/morning` | 每日开局 — 列今日 3 件事 + 风险预警，不动手 |
+| `/exp` | 跑 / 补实验，强约束落 `data/results.csv` + `run_log.md` |
+| `/write` | 深参与起草 / 改稿，直接写文件 |
+
+**领域 skill**（按任务触发）：
 | 命令 | 调用的 skill / 知识 |
 |------|--------------------|
 | `/paper` | `skills/paper/` |
