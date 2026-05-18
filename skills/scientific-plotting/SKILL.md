@@ -9,12 +9,66 @@ license: Complete terms in LICENSE.txt
 
 创建符合学术出版标准的高质量图表。
 
+## 友邻 skill
+
+| 投稿场景 | 推荐 |
+|---------|------|
+| **CS / AI 顶会**（NeurIPS / ICML / ICLR / CVPR / ACL） | **本 skill** — 集成 statannotations、forest plot、显著性 bracket、跨 venue 模板 |
+| **Nature / CNS / NMI 系** | **`nature-figure`** (https://github.com/Yuan1z0825/nature-skills) — 单一标准下更深入的设计哲学和多 panel 层次原则 |
+| IEEE / ACS / RSC / Elsevier | 本 skill — 各 venue 规格都内建 |
+
+两边互不冲突；Nature/CNS 提交可以两个都开，互相参考。本 skill 已经吸收了 nature-figure 的几个核心想法（语义配色、subfigure 层次、可编辑 SVG）— 见下方"核心原则"。
+
+## 核心原则（开画前先读）
+
+### 1. 图作为论证
+
+每张图独立回答一个论文级问题。开画前先写 caption 第一句"This figure shows ..."，写不出来就不画。
+
+### 2. Multi-panel 层次
+
+反对等尺寸 2×2 网格。推荐"主题 panel（占视觉焦点 2-2.5×）+ 1-2 个从属证据 panel"。
+
+```python
+# 推荐
+fig, axes = plt.subplots(1, 2, figsize=(7, 3),
+                          gridspec_kw={"width_ratios": [2.5, 1]})
+panel_main_argument(axes[0])      # 主结论
+panel_supporting_evidence(axes[1]) # 为什么 work / 代价是什么
+```
+
+### 3. 语义配色跨图一致
+
+一篇论文里 "Ours" 在每张图都用同一个颜色。建立 `METHOD_COLOR` 字典，所有 figure 脚本统一查表：
+
+```python
+SEMANTIC = {
+    "hero":     "#0F4D92",  # Ours
+    "baseline": "#B64342",  # 主竞争者
+    "variant":  "#8BCF8B",  # Ours 的正向变体（ablation +X）
+    "support":  "#42949E",  # 参考方法 / 次要 baseline
+    "neutral":  "#767676",  # 弱基线 / 参考线
+    "negative": "#D55E00",  # 失败案例 / drop
+}
+```
+
+### 4. 防冗余 checklist
+
+不要画"同数据两种表示"、"子集+父集并列"、"两个 ranking 同样方法"、"absolute+absolute 趋势一样"这四种冗余 panel。
+
+### 5. 可编辑 SVG 用于投稿后改字
+
+`svg.fonttype = 'none'` 让 SVG 里文字保持 `<text>` 元素，审稿人挑 typo 时 Inkscape 直接改不用重跑代码。
+
+完整原则参见 `knowledge/methods/figure-standards.md`，可执行实现参见 `projects/_template/figures/matplotlib_settings.py`。
+
 ## 工作流程
 
 1. 明确图表类型和数据来源
-2. 选择合适的绘图工具
-3. 应用学术样式和配色
-4. 输出符合期刊要求的格式
+2. **应用上述核心原则**（层次、配色、防冗余）
+3. 选择合适的绘图工具
+4. 应用学术样式和配色
+5. 输出符合期刊要求的格式（推荐 PDF + 可编辑 SVG）
 
 ## 图表类型指南
 
@@ -171,6 +225,7 @@ import numpy as np
 # 字体嵌入（确保PDF/EPS中字体可嵌入，避免投稿问题）
 plt.rcParams['pdf.fonttype'] = 42   # TrueType字体嵌入PDF
 plt.rcParams['ps.fonttype'] = 42    # TrueType字体嵌入PS/EPS
+plt.rcParams['svg.fonttype'] = 'none'  # SVG文字保持可编辑（投稿后改label用）
 
 # 学术风格初始化
 def setup_academic_style():

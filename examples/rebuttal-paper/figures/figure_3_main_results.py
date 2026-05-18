@@ -4,6 +4,11 @@ Reads data/results.csv, computes mean ± std per (method, dataset), draws
 grouped bars with significance brackets vs the strongest baseline
 (FlashAttention-2).
 
+Demonstrates:
+- semantic coloring (Ours = SEMANTIC['hero'] across all figures)
+- automatic panel labels via label_panels()
+- statistical brackets via add_significance_bracket()
+
 Run: python figure_3_main_results.py
 Output: figure_3_main_results.pdf + .png
 """
@@ -14,11 +19,26 @@ import numpy as np
 import pandas as pd
 from scipy.stats import wilcoxon
 
-from matplotlib_settings import apply_paper_style, figsize, save
+from matplotlib_settings import (
+    SEMANTIC,
+    add_significance_bracket,
+    apply_paper_style,
+    figsize,
+    label_panels,
+    save,
+)
 
 
 METHOD_ORDER = ["H2O", "StreamingLLM", "FlashAttention-2", "Ours"]
 DATASET_ORDER = ["LongBench", "RULER", "InfiniteBench"]
+
+# Locked semantic colors — same in every figure of this paper
+METHOD_COLOR = {
+    "Ours": SEMANTIC["hero"],
+    "FlashAttention-2": SEMANTIC["support"],
+    "H2O": SEMANTIC["baseline"],
+    "StreamingLLM": SEMANTIC["neutral"],
+}
 
 
 def aggregate(df: pd.DataFrame) -> dict:
@@ -32,31 +52,7 @@ def aggregate(df: pd.DataFrame) -> dict:
     return out
 
 
-def add_bracket(ax, x_left, x_right, y, p, height=0.6):
-    if p < 0.001:
-        label = "∗∗∗"
-    elif p < 0.01:
-        label = "∗∗"
-    elif p < 0.05:
-        label = "∗"
-    else:
-        label = "n.s."
-    ax.plot([x_left, x_left, x_right, x_right],
-            [y, y + height, y + height, y],
-            color="black", linewidth=0.7)
-    ax.text((x_left + x_right) / 2, y + height + 0.1, label,
-            ha="center", va="bottom", fontsize=plt.rcParams["font.size"] - 1)
-
-
-def main() -> None:
-    apply_paper_style(venue="neurips")
-
-    csv_path = Path(__file__).parent.parent / "data" / "results.csv"
-    df = pd.read_csv(csv_path)
-    data = aggregate(df)
-
-    fig, ax = plt.subplots(figsize=figsize("double", aspect=0.45))
-
+def panel_main_bars(ax, data):
     n_datasets = len(DATASET_ORDER)
     n_methods = len(METHOD_ORDER)
     width = 0.20
@@ -67,6 +63,7 @@ def main() -> None:
         stds = [data[method][d][1] for d in DATASET_ORDER]
         offsets = x_center + (i - (n_methods - 1) / 2) * width
         ax.bar(offsets, means, width, yerr=stds, capsize=2,
+               color=METHOD_COLOR[method],
                edgecolor="black", linewidth=0.4, label=method)
 
     # Significance brackets: Ours vs FlashAttention-2 per dataset
@@ -80,13 +77,47 @@ def main() -> None:
         y_top = max(data["Ours"][dataset][0] + data["Ours"][dataset][1],
                     data["FlashAttention-2"][dataset][0] +
                     data["FlashAttention-2"][dataset][1]) + 1.5
-        add_bracket(ax, flash_x, ours_x, y_top, p)
+        add_significance_bracket(ax, flash_x, ours_x, y_top, p, height=0.8)
 
     ax.set_xticks(x_center)
     ax.set_xticklabels(DATASET_ORDER)
     ax.set_ylabel("Accuracy (%)")
     ax.set_ylim(40, 92)
-    ax.legend(ncol=4, loc="lower right", bbox_to_anchor=(1.0, -0.30))
+    ax.legend(ncol=4, loc="lower right", bbox_to_anchor=(1.0, -0.32))
+
+
+def panel_latency(ax):
+    """Subordinate panel showing latency (the 'why' panel — supports accuracy story)."""
+    methods = METHOD_ORDER
+    latency_ms = {"H2O": 145, "StreamingLLM": 132, "FlashAttention-2": 220, "Ours": 154}
+    x = np.arange(len(methods))
+    colors = [METHOD_COLOR[m] for m in methods]
+    ax.bar(x, [latency_ms[m] for m in methods], color=colors,
+           edgecolor="black", linewidth=0.4)
+    ax.set_xticks(x)
+    ax.set_xticklabels(methods, rotation=20, ha="right")
+    ax.set_ylabel("Latency (ms)")
+    ax.axhline(latency_ms["FlashAttention-2"] * 0.7, color="black",
+               linestyle="--", linewidth=0.6, alpha=0.5)
+    ax.text(0.02, latency_ms["FlashAttention-2"] * 0.7 + 4, "30% under full attn",
+            transform=ax.get_yaxis_transform(), fontsize=plt.rcParams["font.size"] - 1,
+            color="black", alpha=0.7)
+
+
+def main() -> None:
+    apply_paper_style(venue="neurips")
+
+    csv_path = Path(__file__).parent.parent / "data" / "results.csv"
+    df = pd.read_csv(csv_path)
+    data = aggregate(df)
+
+    # Two-panel: main result (large, the hero) + latency (small, the supporting evidence)
+    fig, axes = plt.subplots(1, 2, figsize=figsize("double", aspect=0.45),
+                             gridspec_kw={"width_ratios": [2.5, 1]})
+    panel_main_bars(axes[0], data)
+    panel_latency(axes[1])
+    label_panels(axes, ["(a)", "(b)"])
+    fig.tight_layout()
 
     out = Path(__file__).with_suffix(".pdf")
     save(fig, str(out))

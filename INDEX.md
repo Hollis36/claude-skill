@@ -75,6 +75,17 @@ Agent 按此索引选择资源。每行格式：`路径 | 标签 | 适用阶段 
 | `/rebuttal` | `knowledge/templates/rebuttal.md` |
 | `/venue` | `knowledge/venues/` |
 
+## 外部友邻 Skill（按场景推荐）
+
+仓库不收编，但场景匹配时可推荐 Hollis 安装使用：
+
+| 外部 Skill | URL | 适用场景 | 与本库关系 |
+|-----------|-----|---------|-----------|
+| `nature-figure`（Yuan1z0825/nature-skills） | https://github.com/Yuan1z0825/nature-skills | Nature / CNS / NMI 系投稿的 figure 设计 | 本库 `skills/scientific-plotting/` 已吸收其"语义配色、subfigure 层次、可编辑 SVG"等想法；Nature/CNS 场景两者互补 |
+| `nature-polishing`（同上仓库）| 同上 | Nature 风格英文润色（≤30 词句、英式英语）| 本库 `knowledge/methods/writing-style-checks.md` 走更通用 CS/AI 风格 |
+
+Agent 在以下场景**主动提醒**：用户提到投 Nature / Science / Cell / NMI → 建议加装 `nature-figure`；用户要 Nature 级英文润色 → 建议 `nature-polishing`。
+
 ## 其他 Skill（非科研，按需）
 
 | 路径 | 用途 |

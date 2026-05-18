@@ -2,6 +2,83 @@
 
 详细绘图工具见 `skills/scientific-plotting/`。本文是**审稿前的检查清单**和**模板规范**。
 
+---
+
+## 图作为论证（先想清楚再画）
+
+每张图都是论文的**一个独立论证**，不是"显示数据"。开画前问 3 个问题：
+
+1. **这张图回答什么问题？** 一句话能写出来 → 写进 figure caption 第一句
+2. **没有这张图，论证还成立吗？** 如果成立 → 删掉，节省版面
+3. **同一张图里每个 panel 都答**不同的**问题吗？** 是 → 留；否 → 合并或拆分
+
+### 防冗余 checklist（多 panel 图）
+
+容易踩的 4 个 trap，agent 画图前自查：
+
+| Trap | 例子 | 改 |
+|------|------|-----|
+| **同数据两种表示** | (a) 折线图 + (b) 同数据的散点 | 留一种 |
+| **子集 + 父集并列** | (a) 全数据集 mean + (b) 三个子集 mean | 把子集合并进 (a) 用颜色区分 |
+| **两个 ranking** | (a) 按 accuracy 排 + (b) 按 latency 排同样方法 | 用一张散点 acc vs latency |
+| **绝对值 + 绝对值** | (a) 各方法 acc + (b) 各方法 F1，且趋势一样 | 留 acc 主图，F1 进表 |
+
+### Multi-panel 层次原则
+
+**反对**等尺寸 2×2 网格填满 canvas。**推荐**："一个主题 panel + 1-2 个从属证据 panel"。
+
+```
+# 反模式（弱）：4 个一样大的 panel，读者不知道看哪个
+fig, axes = plt.subplots(2, 2, figsize=(7, 5))
+
+# 推荐：主面板大 2.5×，旁边小面板提供支撑证据
+fig, axes = plt.subplots(1, 2, figsize=(7, 3),
+                          gridspec_kw={"width_ratios": [2.5, 1]})
+panel_main_argument(axes[0])      # 主结论（占视觉焦点）
+panel_supporting_evidence(axes[1]) # "为什么 work" 或 "代价是什么"
+```
+
+例：主图是 accuracy bar chart，从属是 latency 或 parameter count。
+
+### Subfigure 标注
+
+- 永远用 `(a) (b) (c)` 格式，不要用 `A. B. C.` 或 `① ② ③`
+- 标签位置：**axes 左上外侧**（最常见、最清晰）
+- 字号 = axes title 字号 + 1，**bold**
+- 用 `matplotlib_settings.py` 里的 `label_panels(axes)` 自动加，不要手动 `ax.text` 一个个写
+
+---
+
+## 语义配色（跨图一致性）
+
+最常见的 reviewer 抱怨之一："Figure 3 里 Ours 是蓝色，Figure 5 里 Ours 怎么变红了？"
+
+**铁律**：一篇论文中，**同一个方法在所有图里用同一个颜色**，不随机分配。
+
+`matplotlib_settings.py` 里的 `SEMANTIC` 字典就是为此：
+
+```python
+from matplotlib_settings import SEMANTIC
+
+METHOD_COLOR = {
+    "Ours":             SEMANTIC["hero"],      # 主方法 — 蓝
+    "Strong Baseline":  SEMANTIC["baseline"],   # 主竞争者 — 红
+    "Reference Method": SEMANTIC["support"],    # 参考 — 青
+    "Older Baseline":   SEMANTIC["neutral"],    # 弱基线 — 灰
+    "Our Ablation +X":  SEMANTIC["variant"],    # Ours 变体 — 绿
+}
+```
+
+每张图开头 import 这个字典，每个 method 都查表取色 — agent 画图时**强制查表**，不要 cycler 默认。
+
+### 配色三原则
+
+1. **每图一个克制配色族** — 一个主色 + 一个对比色 + 灰，**不要彩虹**
+2. **绿/红只用于方向性**（improvement = 绿，drop = 红），不要用在分类
+3. **类别 > 7 个？** — 你的图设计本身有问题，重新组织（合并、分面、聚类）
+
+---
+
 ## 文件格式
 
 | 用途 | 格式 | 原因 |
@@ -10,6 +87,19 @@
 | 大数据点（>10k 点散点图） | **PNG (600 dpi)** | 矢量会爆炸 |
 | 论文最终提交 | **PDF**（LaTeX `\includegraphics`） | 期刊首选 |
 | 投稿系统单独要求 | **TIFF/EPS** | 检查投稿指南 |
+| 投稿后**改 label**用 | **SVG with `svg.fonttype='none'`** | 文字保持可编辑，Illustrator/Inkscape 直接改不用重跑代码 |
+
+### 可编辑 SVG（投稿后救命）
+
+```python
+import matplotlib as mpl
+mpl.rcParams['svg.fonttype'] = 'none'   # 必须！否则文字变成 path
+fig.savefig('figure.svg')
+```
+
+效果：保存的 SVG 里 `<text>` 还是 `<text>`，不是 `<path d="...">`。审稿人挑出 typo 时直接 Inkscape 改完导 PDF，不用回去找数据 + 跑脚本 + 重画。
+
+`matplotlib_settings.py` 默认已开启，正常用 `apply_paper_style()` 就有。
 
 ## 分辨率与尺寸
 
