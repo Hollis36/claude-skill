@@ -4,11 +4,16 @@
 
 ## 用户档案
 
-- **方向**：计算机科学 / 人工智能
-- **常投会议**：NeurIPS、ICML、ICLR、CVPR、ACL、AAAI、IJCAI、EMNLP、NAACL
-- **常投期刊**：TPAMI、JMLR、Nature Machine Intelligence
+- **核心方向**：CS / AI + **机器人 / 工业自动化**（多目标优化、机器人路径规划、sim-to-real）
+- **常投顶会**：
+  - CS / AI：NeurIPS、ICML、ICLR、CVPR、ACL、AAAI、IJCAI、EMNLP、NAACL
+  - 机器人：**ICRA、IROS、RSS、CoRL**
+- **常投期刊**：
+  - CS / AI：TPAMI、JMLR、Nature Machine Intelligence
+  - 机器人 / 自动化：**T-ASE、T-RO、T-Mech、RA-L**（见 `knowledge/venues/`）
 - **写作语言**：英文论文 + 中文沟通（默认用中文回复 Hollis，论文内容用英文）
-- **工具栈**：Python（PyTorch / NumPy / matplotlib / seaborn）、LaTeX、Git、Docker
+- **工具栈**：Python（PyTorch / NumPy / matplotlib / seaborn / scipy / **MuJoCo**）、LaTeX、Git、Docker
+- **机器人专项**：Franka Panda 平台、MuJoCo 3.x、多目标进化算法（NSGA-II / MOEA/D）
 
 ## 仓库布局
 

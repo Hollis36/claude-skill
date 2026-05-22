@@ -42,6 +42,9 @@ Agent 按此索引选择资源。每行格式：`路径 | 标签 | 适用阶段 
 | `knowledge/venues/iclr.md` | ICLR 投稿信息（OpenReview） | submit |
 | `knowledge/venues/cvpr.md` | CVPR 投稿信息 | submit |
 | `knowledge/venues/acl-emnlp.md` | ACL / EMNLP / NAACL 投稿信息 | submit |
+| `knowledge/venues/tase.md` | **T-ASE**（IEEE 自动化）— Note to Practitioners 强制、12 页限、应用导向 | submit |
+| `knowledge/venues/icra-iros.md` | ICRA / IROS / RA-L 机器人顶会 + 短篇期刊 track | submit |
+| `knowledge/venues/robotics-journals.md` | T-RO / T-Mech / RA-L / RAS — 跨期刊投稿决策树 | submit |
 | `knowledge/references/_template.md` | 文献笔记模板 | lit-review |
 | `knowledge/glossary.md` | CS/AI 中英术语对照 | write |
 
