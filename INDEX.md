@@ -54,6 +54,7 @@ Agent 按此索引选择资源。每行格式：`路径 | 标签 | 适用阶段 
 |------|------|
 | `projects/_template/` | 新论文项目骨架（复制后改名即可起步；`/init` 命令也用它） |
 | `examples/rebuttal-paper/` | 完整填好的示范项目（合成数据，演示 rebuttal 期工作流；agent 可作 few-shot 参考） |
+| `examples/tase-revision/` | 真实 paper 修订**应用案例**（TASE submission，含 3 张修订 figure + revision_notes.md + 本地 setup 指引） |
 
 ## Slash Commands
 
