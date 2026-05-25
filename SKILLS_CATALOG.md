@@ -5,10 +5,13 @@ Complete reference for all skills in this repository. Click on skill names to vi
 ## Table of Contents
 
 - [Academic & Research](#academic--research)
-- [Design & Creative](#design--creative)  
+- [Design & Creative](#design--creative)
 - [Document Creation](#document-creation)
 - [Development & Tools](#development--tools)
 - [Communication](#communication)
+- [Workflow & Methodology](#workflow--methodology)
+- [Code Review & Debugging](#code-review--debugging)
+- [Web & Deployment](#web--deployment)
 
 ---
 
@@ -129,6 +132,120 @@ Resources for writing internal communications using company-preferred formats. C
 Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts.
 
 **Use when**: Creating animated GIFs for Slack, optimizing animations for messaging platforms
+
+---
+
+## Workflow & Methodology
+
+Curated workflow skills from `obra/superpowers` and `mattpocock/skills` — high-leverage methodology for any coding session.
+
+### [brainstorming](skills/brainstorming/SKILL.md)
+Explore user intent, requirements, and design before implementation. **Required before any creative work** — creating features, building components, modifying behavior. (177K+ installs)
+
+**Use when**: Starting any new feature, design, or component work
+
+### [writing-plans](skills/writing-plans/SKILL.md)
+Turn a spec or requirement into a written, step-by-step implementation plan before touching code.
+
+**Use when**: You have a multi-step task ahead and need to align on approach first
+
+### [executing-plans](skills/executing-plans/SKILL.md)
+Execute a written implementation plan in a separate session with review checkpoints.
+
+**Use when**: Implementing against an existing approved plan
+
+### [test-driven-development](skills/test-driven-development/SKILL.md)
+Rigorous red-green-refactor TDD methodology from obra/superpowers. (95K+ installs)
+
+**Use when**: Building new features or fixing bugs — write tests first
+
+### [tdd](skills/tdd/SKILL.md)
+Matt Pocock's concise TDD philosophy — vertical slices via tracer bullets, no horizontal slicing.
+
+**Use when**: You want TDD with a focus on integration-style tests through public interfaces
+
+### [using-git-worktrees](skills/using-git-worktrees/SKILL.md)
+Use Git worktrees to work on multiple branches in parallel without context-switching cost.
+
+**Use when**: You need to investigate or implement something on a different branch
+
+### [verification-before-completion](skills/verification-before-completion/SKILL.md)
+Verify your work actually does what it claims before reporting "done".
+
+**Use when**: About to declare a task complete — confirms reality matches the claim
+
+### [handoff](skills/handoff/SKILL.md)
+Compact the current conversation into a handoff document for another agent to pick up.
+
+**Use when**: Approaching context limits, switching agents, or pausing long-running work
+
+### [grill-me](skills/grill-me/SKILL.md)
+Interview the user relentlessly about a plan or design until reaching shared understanding.
+
+**Use when**: Spec is vague, requirements are unclear, or alignment isn't strong
+
+### [prototype](skills/prototype/SKILL.md)
+Build a throwaway prototype to flesh out a design before committing to the real implementation.
+
+**Use when**: Design has unknowns that only show up at the keyboard
+
+### [to-prd](skills/to-prd/SKILL.md)
+Turn the current conversation context into a PRD and publish it to the project issue tracker.
+
+**Use when**: Conversation has converged on a feature definition that should be persisted
+
+### [zoom-out](skills/zoom-out/SKILL.md)
+Tell the agent to zoom out and give broader context or a higher-level perspective.
+
+**Use when**: Lost in detail and need to re-anchor on the big picture
+
+---
+
+## Code Review & Debugging
+
+### [requesting-code-review](skills/requesting-code-review/SKILL.md)
+Request an effective code review — frame the change, surface the risk, get useful feedback. (97K+ installs)
+
+**Use when**: Asking another agent or human to review your work
+
+### [receiving-code-review](skills/receiving-code-review/SKILL.md)
+Process incoming code review feedback systematically — triage, decide, respond. (77K+ installs)
+
+**Use when**: You received review comments and need to act on them
+
+### [diagnose](skills/diagnose/SKILL.md)
+Matt Pocock's disciplined diagnosis loop — reproduce, minimize, isolate — for hard bugs and performance regressions.
+
+**Use when**: Bug is non-obvious, intermittent, or you're tempted to guess at fixes
+
+### [systematic-debugging](systematic-debugging/SKILL.md) (general)
+Random fixes waste time. Structured 4-phase debugging from obra/superpowers. (110K+ installs)
+
+**Use when**: Encountering any bug, test failure, or unexpected behavior — before proposing fixes
+
+### [systematic-debugging-research](skills/systematic-debugging-research/SKILL.md) (scientific)
+Original scientific-research-tailored debugging skill (preserved). 797-line detailed Chinese guide for research code debugging.
+
+**Use when**: Debugging Python scientific computing, data analysis, statistical computations
+
+---
+
+## Web & Deployment
+
+### [vercel-react-best-practices](skills/vercel-react-best-practices/SKILL.md)
+React and Next.js performance optimization guidelines from Vercel Engineering. (423K+ installs)
+
+**Use when**: Writing, reviewing, or refactoring React/Next.js code
+
+### [web-design-guidelines](skills/web-design-guidelines/SKILL.md)
+Review UI code for Web Interface Guidelines compliance — accessibility, UX, design audit. (340K+ installs)
+
+**Use when**: "Review my UI", "check accessibility", "audit design", "review UX"
+
+### [deploy-to-vercel](skills/deploy-to-vercel/SKILL.md)
+Deploy applications and websites to Vercel via the CLI.
+
+**Use when**: "Deploy my app", "push this live", "create a preview deployment"
 
 ---
 

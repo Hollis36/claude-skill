@@ -72,7 +72,8 @@ cluade_skill/
 - **statistical-analysis** - Statistical testing, power analysis, and APA/AMA reporting
 - **reproducible-research** - Jupyter notebooks, Docker containers, and workflow automation
 - **code-review** - Scientific code review with comprehensive testing and quality checklists
-- **systematic-debugging** - Systematic 4-phase debugging workflow for research code
+- **systematic-debugging** - General 4-phase debugging workflow (from obra/superpowers, 110K+ installs)
+- **systematic-debugging-research** - Detailed Chinese scientific code debugging guide (preserved at `skills/systematic-debugging-research/`)
 
 #### Design & Creative
 - **algorithmic-art** - Generative art using p5.js with seeded randomness
@@ -97,6 +98,31 @@ cluade_skill/
 - **doc-coauthoring** - Collaborative document writing workflows
 - **internal-comms** - Internal communications and announcements
 - **slack-gif-creator** - Create engaging GIFs for Slack
+
+#### Workflow & Methodology
+*Curated from `obra/superpowers` and `mattpocock/skills` — high-leverage workflow skills.*
+- **brainstorming** - Explore intent and requirements before any creative work (177K+ installs)
+- **writing-plans** - Turn specs into step-by-step implementation plans
+- **executing-plans** - Execute written plans with review checkpoints
+- **test-driven-development** - Rigorous red-green-refactor TDD (95K+ installs)
+- **tdd** - Matt Pocock's concise TDD philosophy (vertical slices via tracer bullets)
+- **using-git-worktrees** - Parallel branches without context-switching cost
+- **verification-before-completion** - Verify reality matches your "done" claim
+- **handoff** - Compact conversation into a handoff document for another agent
+- **grill-me** - Interview the user until alignment is solid
+- **prototype** - Throwaway prototypes to flesh out designs
+- **to-prd** - Turn conversation into a PRD and publish to issue tracker
+- **zoom-out** - Pull back to broader context when lost in detail
+
+#### Code Review
+- **requesting-code-review** - Effective code review requests (97K+ installs)
+- **receiving-code-review** - Process review feedback systematically (77K+ installs)
+- **diagnose** - Disciplined diagnosis loop for hard bugs (reproduce → minimize → isolate)
+
+#### Web & Deployment
+- **vercel-react-best-practices** - React/Next.js performance from Vercel Engineering (423K+ installs)
+- **web-design-guidelines** - Web Interface Guidelines compliance review (340K+ installs)
+- **deploy-to-vercel** - Deploy to Vercel via CLI
 
 ### How to Use
 
